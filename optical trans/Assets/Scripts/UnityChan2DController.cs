@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnityChan2DController : MonoBehaviour
 {
     public float maxSpeed = 10f;
+    public float jumpDelay = 3f;
     public float jumpPower = 1000f;
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
     public bool DoubleJump;
@@ -15,6 +16,8 @@ public class UnityChan2DController : MonoBehaviour
     private Rigidbody2D m_rigidbody2D;
     private bool m_isGround;
     private bool canDoubleJump; //allow to double jump
+    private bool canJump = true;
+    private float jumpTime;
     private const float m_centerY = 1.5f;
 
     private State m_state = State.Normal;
@@ -49,6 +52,8 @@ public class UnityChan2DController : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_boxcollier2D = GetComponent<BoxCollider2D>();
         m_rigidbody2D = GetComponent<Rigidbody2D>();
+        if (DoubleJump)
+            canDoubleJump = true;
     }
 
     void Update()
@@ -59,6 +64,7 @@ public class UnityChan2DController : MonoBehaviour
             bool jump = Input.GetButtonDown("Jump");
             Move(x, jump);
         }
+        
     }
 
     void Move(float move, bool jump)
@@ -77,27 +83,38 @@ public class UnityChan2DController : MonoBehaviour
 
         if (jump)
         {
-            if (m_isGround)
+            if (m_isGround && canJump)
             {
                 m_animator.SetTrigger("Jump");
                 SendMessage("Jump", SendMessageOptions.DontRequireReceiver);
                 m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower);
-                canDoubleJump = true;
+                //canDoubleJump = true;
+                canJump = false;
                 Debug.Log("jump");
             }
             else
             {
-                if (canDoubleJump && DoubleJump)
+                if (!m_isGround && canDoubleJump && DoubleJump)
                 {
                     canDoubleJump = false;
                     SendMessage("Jump", SendMessageOptions.DontRequireReceiver);
                     m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower / 1.1f);
+                    Debug.Log("Djump");
                     //m_rigidbody2D.AddForce(Vector2.up * jumpPower);
                 }
             }
         }
         if (m_isGround)
-            canDoubleJump = true;
+        {
+            if (!canJump) {
+                jumpTime += Time.deltaTime;
+                if (jumpTime > jumpDelay) {
+                    jumpTime = 0;
+                    canJump = true;
+                    canDoubleJump = true;
+                }
+            }
+        }
     }
 
     void FixedUpdate()
