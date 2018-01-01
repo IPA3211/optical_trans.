@@ -82,7 +82,8 @@ public class UnityChan2DController : MonoBehaviour
                 m_animator.SetTrigger("Jump");
                 SendMessage("Jump", SendMessageOptions.DontRequireReceiver);
                 m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower);
-				Debug.Log("jump");
+                canDoubleJump = true;
+                Debug.Log("jump");
             }
             else
             {
