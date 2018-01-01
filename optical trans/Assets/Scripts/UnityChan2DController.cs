@@ -89,7 +89,8 @@ public class UnityChan2DController : MonoBehaviour
                 if (canDoubleJump && DoubleJump)
                 {
                     canDoubleJump = false;
-					m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower / 1.1f);
+                    SendMessage("Jump", SendMessageOptions.DontRequireReceiver);
+                    m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower / 1.1f);
                     //m_rigidbody2D.AddForce(Vector2.up * jumpPower);
                 }
             }
