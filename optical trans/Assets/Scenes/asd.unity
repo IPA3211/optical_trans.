@@ -1412,6 +1412,21 @@ Prefab:
       propertyPath: reloadBar
       value: 
       objectReference: {fileID: 1621367368}
+    - target: {fileID: 212315638436727504, guid: e3ff126a806b2454eaff021fe39cea19,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212315638436727504, guid: e3ff126a806b2454eaff021fe39cea19,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114575237174818438, guid: e3ff126a806b2454eaff021fe39cea19,
+        type: 2}
+      propertyPath: charactor
+      value: 
+      objectReference: {fileID: 1908605745}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
   m_IsPrefabParent: 0
@@ -4026,13 +4041,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1621367368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.565, y: 1.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -25.05, y: -5.309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 793985631}
-  m_Father: {fileID: 1908605746}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645565648
 GameObject:
@@ -4417,10 +4432,6 @@ Transform:
 --- !u!1 &1908605745 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
-  m_PrefabInternal: {fileID: 462818177}
---- !u!4 &1908605746 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
   m_PrefabInternal: {fileID: 462818177}
 --- !u!1 &1923586544
 GameObject:
