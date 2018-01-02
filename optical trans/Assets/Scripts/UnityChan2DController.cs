@@ -17,6 +17,7 @@ public class UnityChan2DController : MonoBehaviour
     private bool m_isGround;
     private bool canDoubleJump; //allow to double jump
     private bool canJump = true;
+    private bool paused;
     private float jumpTime;
     private const float m_centerY = 1.5f;
 
@@ -54,17 +55,21 @@ public class UnityChan2DController : MonoBehaviour
         m_rigidbody2D = GetComponent<Rigidbody2D>();
         if (DoubleJump)
             canDoubleJump = true;
+        paused = GameObject.Find("Script").GetComponent<Menu>().paused;
     }
 
     void Update()
     {
-        if (m_state != State.Damaged)
+        paused = GameObject.Find("Script").GetComponent<Menu>().paused;
+        if (!paused)
         {
-            float x = Input.GetAxis("Horizontal");
-            bool jump = Input.GetButtonDown("Jump");
-            Move(x, jump);
+            if (m_state != State.Damaged)
+            {
+                float x = Input.GetAxis("Horizontal");
+                bool jump = Input.GetButtonDown("Jump");
+                Move(x, jump);
+            }
         }
-        
     }
 
     void Move(float move, bool jump)

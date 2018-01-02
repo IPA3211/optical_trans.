@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class shoot : MonoBehaviour {
 
+
     public GameObject bullet;
     public float reloadTime;
     public int maxAmountOfBullet;
@@ -13,48 +14,57 @@ public class shoot : MonoBehaviour {
 
     private float Delayed;
     private bool reloading;
+    private bool paused;
 
-    
-    
+
+
 
     // Use this for initialization
     void Start () {
         AmountOfBullet = maxAmountOfBullet;
         reloading = false;
         reloadBar.transform.localScale = new Vector3(0, 1);
+        paused = GameObject.Find("Script").GetComponent<Menu>().paused;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (reloading == true)
+        paused = GameObject.Find("Script").GetComponent<Menu>().paused;
+        if (!paused)
         {
-            Delayed += Time.deltaTime;
-            reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
-        }
-        else {
-            reloadBar.transform.localScale = new Vector3(0, 1);
-        }
+            if (reloading == true)
+            {
+                Delayed += Time.deltaTime;
+                reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
+            }
+            else
+            {
+                reloadBar.transform.localScale = new Vector3(0, 1);
+            }
 
-        if (Delayed >= reloadTime && reloading == true)
-        {
-            AmountOfBullet = maxAmountOfBullet;
-            reloading = false;
-        }
+            if (Delayed >= reloadTime && reloading == true)
+            {
+                AmountOfBullet = maxAmountOfBullet;
+                reloading = false;
+            }
 
-        if (Input.GetMouseButtonDown(0) && AmountOfBullet > 0) {
-            Instantiate(bullet, transform.position, transform.parent.rotation);
-            AmountOfBullet--;
-            if (AmountOfBullet == 0) {
+            if (Input.GetMouseButtonDown(0) && AmountOfBullet > 0)
+            {
+                Instantiate(bullet, transform.position, transform.parent.rotation);
+                AmountOfBullet--;
+                if (AmountOfBullet == 0)
+                {
+                    Delayed = 0;
+                    reloading = true;
+                }
+            }
+
+            if (Input.GetKey(KeyCode.R))
+            {
+                AmountOfBullet = 0;
                 Delayed = 0;
                 reloading = true;
             }
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-            AmountOfBullet = 0;
-            Delayed = 0;
-            reloading = true;
         }
     }
 }
