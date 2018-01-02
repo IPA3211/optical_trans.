@@ -21,7 +21,7 @@ public class bullet: MonoBehaviour {
     {
         angle = transform.eulerAngles.z;
         Debug.Log(angle);
-        change = GameObject.Find("background").GetComponent<ChangePos>();
+        change = GameObject.Find("Script").GetComponent<ChangePos>();
 		Destroy (gameObject, DestroyTime);
     }
 	

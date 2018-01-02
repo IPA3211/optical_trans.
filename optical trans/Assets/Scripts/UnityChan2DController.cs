@@ -106,13 +106,18 @@ public class UnityChan2DController : MonoBehaviour
         }
         if (m_isGround)
         {
-            if (!canJump) {
+            if (!canJump)
+            {
                 jumpTime += Time.deltaTime;
-                if (jumpTime > jumpDelay) {
+                if (jumpTime > jumpDelay)
+                {
                     jumpTime = 0;
                     canJump = true;
                     canDoubleJump = true;
                 }
+            }
+            else {
+                canDoubleJump = true;
             }
         }
     }
