@@ -4,13 +4,14 @@ using UnityEngine;
 public class UnityChan2DController : MonoBehaviour
 {
     public float maxSpeed = 10f;
-    public float jumpDelay = 3f;
+    public float jumpDelay = 0.1f;
     public float jumpPower = 1000f;
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
     public bool DoubleJump;
     public bool Flip;
 
     public LayerMask whatIsGround;
+	AudioSource reloadSound;
 
     private Animator m_animator;
     private BoxCollider2D m_boxcollier2D;

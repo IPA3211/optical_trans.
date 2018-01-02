@@ -15,6 +15,7 @@ public class shoot : MonoBehaviour {
 
     private float Delayed;
     private bool reloading;
+	private bool reload_sounded;
     private bool paused;
 
 
@@ -24,6 +25,7 @@ public class shoot : MonoBehaviour {
     void Start () {
         AmountOfBullet = maxAmountOfBullet;
         reloading = false;
+		reload_sounded = false;
         reloadBar.transform.localScale = new Vector3(0, 1);
         paused = GameObject.Find("Script").GetComponent<Menu>().paused;
     }
@@ -35,7 +37,11 @@ public class shoot : MonoBehaviour {
         {
             if (reloading == true)
             {
-                Delayed += Time.deltaTime;
+				if (reload_sounded == false) {
+					soundManager.instance.PlayReloadSound ();
+					reload_sounded = true;
+				}
+				Delayed += Time.deltaTime;
                 if (charactor.GetComponent<UnityChan2DController>().Flip) {
                     reloadBar.transform.position = charactor.transform.position + new Vector3(-0.44f, 1.2f);
                     reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
@@ -56,10 +62,12 @@ public class shoot : MonoBehaviour {
             {
                 AmountOfBullet = maxAmountOfBullet;
                 reloading = false;
+				reload_sounded = false;
             }
 
             if (Input.GetMouseButtonDown(0) && AmountOfBullet > 0)
             {
+				soundManager.instance.PlayGunFireSound ();
                 Instantiate(bullet, transform.position, transform.parent.rotation);
                 AmountOfBullet--;
                 if (AmountOfBullet == 0)
@@ -69,7 +77,7 @@ public class shoot : MonoBehaviour {
                 }
             }
 
-            if (Input.GetKey(KeyCode.R))
+			if (Input.GetKey(KeyCode.R) && reloading == false)
             {
                 AmountOfBullet = 0;
                 Delayed = 0;
