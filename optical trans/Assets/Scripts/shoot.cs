@@ -11,6 +11,7 @@ public class shoot : MonoBehaviour {
     public int AmountOfBullet;
 
     public GameObject reloadBar;
+    public GameObject charactor;
 
     private float Delayed;
     private bool reloading;
@@ -35,7 +36,16 @@ public class shoot : MonoBehaviour {
             if (reloading == true)
             {
                 Delayed += Time.deltaTime;
-                reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
+                if (charactor.GetComponent<UnityChan2DController>().Flip) {
+                    reloadBar.transform.position = charactor.transform.position + new Vector3(-0.44f, 1.2f);
+                    reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
+                }
+
+                else
+                {
+                    reloadBar.transform.position = charactor.transform.position + new Vector3(-0.56f, 1.2f);
+                    reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
+                }
             }
             else
             {

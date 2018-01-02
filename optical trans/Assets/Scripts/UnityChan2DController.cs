@@ -8,6 +8,7 @@ public class UnityChan2DController : MonoBehaviour
     public float jumpPower = 1000f;
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
     public bool DoubleJump;
+    public bool Flip;
 
     public LayerMask whatIsGround;
 
@@ -77,6 +78,7 @@ public class UnityChan2DController : MonoBehaviour
         if (Mathf.Abs(move) > 0)
         {
             Quaternion rot = transform.rotation;
+            Flip =Mathf.Sign(move) == 1 ? false : true;
             transform.rotation = Quaternion.Euler(rot.x, Mathf.Sign(move) == 1 ? 0 : 180, rot.z);
         }
 
