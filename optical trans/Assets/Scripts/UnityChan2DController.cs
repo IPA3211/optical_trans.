@@ -54,6 +54,7 @@ public class UnityChan2DController : MonoBehaviour
 
     void Awake()
     {
+        m_isGround = gameObject.GetComponent<OnGround>().onGround;
         m_animator = GetComponent<Animator>();
         m_boxcollier2D = GetComponent<BoxCollider2D>();
         m_rigidbody2D = GetComponent<Rigidbody2D>();
@@ -64,6 +65,7 @@ public class UnityChan2DController : MonoBehaviour
 
     void Update()
     {
+        m_isGround = gameObject.GetComponent<OnGround>().onGround;
         paused = GameObject.Find("Script").GetComponent<Menu>().paused;
         if (!paused)
         {
@@ -142,7 +144,7 @@ public class UnityChan2DController : MonoBehaviour
         Vector2 groundCheck = new Vector2(pos.x, pos.y - (m_centerY * transform.localScale.y));
         Vector2 groundArea = new Vector2(m_boxcollier2D.size.x * 0.49f, 0.05f);
 
-        m_isGround = Physics2D.OverlapArea(groundCheck + groundArea, groundCheck - groundArea, whatIsGround);
+        //m_isGround = Physics2D.OverlapArea(groundCheck + groundArea, groundCheck - groundArea, whatIsGround);
         m_animator.SetBool("isGround", m_isGround);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IsGround : MonoBehaviour {
 
-    bool Ground; 
+    public bool Ground; 
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +17,15 @@ public class IsGround : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("in");
+        Ground = true;
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
         Ground = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("out");
         Ground = false;
     }
 }
