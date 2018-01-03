@@ -6,6 +6,7 @@ public class UnityChan2DController : MonoBehaviour
     public float maxSpeed = 10f;
     public float jumpDelay = 0.1f;
     public float jumpPower = 1000f;
+    public float dieYVal = -100f;
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
     public bool DoubleJump;
     public bool Flip;
@@ -71,6 +72,10 @@ public class UnityChan2DController : MonoBehaviour
                 bool jump = Input.GetButtonDown("Jump");
                 Move(x, jump);
             }
+        }
+
+        if (transform.position.y < dieYVal) {
+            GameObject.Find("Script").GetComponent<Menu>().Restart();
         }
     }
 
