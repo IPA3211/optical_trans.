@@ -10,8 +10,8 @@ public class bullet: MonoBehaviour {
 
     public GameObject Charactor;
     public float DestroyTime;
-    Vector2 Trans = Vector2.zero;
-    Vector2 TransR = Vector2.zero;
+    //Vector2 Trans = Vector2.zero;
+    //Vector2 TransR = Vector2.zero;
 
     ChangePos change;
 

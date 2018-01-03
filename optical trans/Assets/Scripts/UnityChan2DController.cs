@@ -42,7 +42,7 @@ public class UnityChan2DController : MonoBehaviour
 
         // Rigidbody2D
         m_rigidbody2D.gravityScale = 3.5f;
-        m_rigidbody2D.fixedAngle = true;
+        //m_rigidbody2D.fixedAngle = true;
 
         // BoxCollider2D
         m_boxcollier2D.size = new Vector2(1, 2.5f);
@@ -141,8 +141,8 @@ public class UnityChan2DController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 pos = transform.position;
-        Vector2 groundCheck = new Vector2(pos.x, pos.y - (m_centerY * transform.localScale.y));
-        Vector2 groundArea = new Vector2(m_boxcollier2D.size.x * 0.49f, 0.05f);
+        //Vector2 groundCheck = new Vector2(pos.x, pos.y - (m_centerY * transform.localScale.y));
+        //Vector2 groundArea = new Vector2(m_boxcollier2D.size.x * 0.49f, 0.05f);
 
         //m_isGround = Physics2D.OverlapArea(groundCheck + groundArea, groundCheck - groundArea, whatIsGround);
         m_animator.SetBool("isGround", m_isGround);
