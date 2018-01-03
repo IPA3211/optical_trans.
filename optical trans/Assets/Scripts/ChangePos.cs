@@ -31,7 +31,7 @@ public class ChangePos : MonoBehaviour {
         rigidbody = Charactor.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0f);
 
-        Debug.Log("TransR :" + TransR.x + " " + TransR.y);
-        Debug.Log("Trans :" + Trans.x + " " + Trans.y);
+        //Debug.Log("TransR :" + TransR.x + " " + TransR.y);
+        //Debug.Log("Trans :" + Trans.x + " " + Trans.y);
     }
 }

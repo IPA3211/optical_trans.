@@ -9,7 +9,6 @@ public class bullet: MonoBehaviour {
     float x = 0, y = 0;
 
     public GameObject Charactor;
-    public GameObject asd;
     public float DestroyTime;
     Vector2 Trans = Vector2.zero;
     Vector2 TransR = Vector2.zero;
@@ -20,7 +19,7 @@ public class bullet: MonoBehaviour {
     void Start ()
     {
         angle = transform.eulerAngles.z;
-        Debug.Log(angle);
+        //Debug.Log(angle);
         change = GameObject.Find("Script").GetComponent<ChangePos>();
 		Destroy (gameObject, DestroyTime);
     }
@@ -34,11 +33,14 @@ public class bullet: MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "coin") { }
+        if (!other.GetComponent<ObjectOption>().canTrans) {
+            if (other.GetComponent<ObjectOption>().canHit)
+                Destroy(gameObject);
+        }
         else
         {
             change.Change(other.gameObject);
-            Debug.Log("asd");
+            //Debug.Log("asd");
 
             Destroy(gameObject);
         }

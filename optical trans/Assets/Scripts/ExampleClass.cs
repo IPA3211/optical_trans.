@@ -27,7 +27,7 @@ public class ExampleClass : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
                 if (hit.collider != null)
                 {
-                    Debug.Log(hit.collider.name);
+                    //Debug.Log(hit.collider.name);
                 }
             }
             Vector2 wp3 = cha.transform.position;
