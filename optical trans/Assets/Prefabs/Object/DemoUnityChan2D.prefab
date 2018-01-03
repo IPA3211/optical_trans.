@@ -192,9 +192,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 9
+  jumpDelay: 0.1
   jumpPower: 16
+  dieYVal: 100
   backwardForce: {x: -4.5, y: 5.4}
   DoubleJump: 1
+  Flip: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -402,6 +405,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1142191182778884, guid: 2a25808e7a6cb81458d666a2445cafe9, type: 2}
+  reloadTime: 0
+  maxAmountOfBullet: 0
+  AmountOfBullet: 0
+  reloadBar: {fileID: 0}
+  charactor: {fileID: 0}
 --- !u!114 &114663192495337744
 MonoBehaviour:
   m_ObjectHideFlags: 1

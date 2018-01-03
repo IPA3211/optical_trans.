@@ -3,9 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class UnityChan2DController : MonoBehaviour
 {
+    public int health = 3;
     public float maxSpeed = 10f;
     public float jumpDelay = 0.1f;
     public float jumpPower = 1000f;
+    public float dieYVal = -100f;
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
     public bool DoubleJump;
     public bool Flip;
@@ -71,6 +73,10 @@ public class UnityChan2DController : MonoBehaviour
                 bool jump = Input.GetButtonDown("Jump");
                 Move(x, jump);
             }
+        }
+
+        if (transform.position.y < dieYVal) {
+            GameObject.Find("Script").GetComponent<Menu>().Restart();
         }
     }
 
@@ -154,6 +160,13 @@ public class UnityChan2DController : MonoBehaviour
         m_animator.Play(m_isGround ? "Damage" : "AirDamage");
         m_animator.Play("Idle");
 
+        health--;
+
+        if(health == 0)
+            GameObject.Find("Script").GetComponent<Menu>().Restart();
+
+        GetComponent<HealthView>().Onoff();
+
         SendMessage("OnDamage", SendMessageOptions.DontRequireReceiver);
 
         m_rigidbody2D.velocity = new Vector2(transform.right.x * backwardForce.x, transform.up.y * backwardForce.y);
@@ -166,6 +179,8 @@ public class UnityChan2DController : MonoBehaviour
         }
         m_animator.SetTrigger("Invincible Mode");
         m_state = State.Invincible;
+        yield return new WaitForSeconds(1.1f);
+        GetComponent<HealthView>().Onoff();
     }
 
     void OnFinishedInvincibleMode()

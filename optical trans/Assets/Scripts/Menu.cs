@@ -31,6 +31,7 @@ public class Menu : MonoBehaviour {
 
 	public void Restart() {
 		SceneManager.LoadScene (scenename, LoadSceneMode.Single);
-		Onoff ();
-	}
+        Time.timeScale = 1;
+
+    }
 }
