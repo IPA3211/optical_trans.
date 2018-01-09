@@ -35,8 +35,20 @@ public class Menu : MonoBehaviour {
     }
 
 	public void Restart() {
-		SceneManager.LoadScene (scenename, LoadSceneMode.Single);
-        Time.timeScale = 1;
-
+        StartCoroutine("myYield");
     }
+    IEnumerator myYield()
+    {
+        if (paused) {
+            Onoff();
+        }
+        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(scenename, LoadSceneMode.Single);
+        Time.timeScale = 1;
+        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
+
+        
+    }
+    
 }

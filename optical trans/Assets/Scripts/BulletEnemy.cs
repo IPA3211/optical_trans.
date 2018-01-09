@@ -35,6 +35,5 @@ public class BulletEnemy : MonoBehaviour {
     {
         if (other.GetComponent<ObjectOption>().canHit)
             Destroy(gameObject);
-        
     }
 }

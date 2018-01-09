@@ -10,6 +10,8 @@ public class bullet: MonoBehaviour {
 
     public GameObject Charactor;
     public float DestroyTime;
+
+    private bool trigger = true;
     //Vector2 Trans = Vector2.zero;
     //Vector2 TransR = Vector2.zero;
 
@@ -22,6 +24,7 @@ public class bullet: MonoBehaviour {
         //Debug.Log(angle);
         change = GameObject.Find("Script").GetComponent<ChangePos>();
 		Destroy (gameObject, DestroyTime);
+        trigger = true;
     }
 	
 	// Update is called once per frame
@@ -33,16 +36,24 @@ public class bullet: MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.GetComponent<ObjectOption>().canTrans) {
-            if (other.GetComponent<ObjectOption>().canHit)
-                Destroy(gameObject);
-        }
-        else
+        Debug.Log("in");
+        if (trigger)
         {
-            change.Change(other.gameObject);
-            //Debug.Log("asd");
+            Debug.Log(trigger);
+            trigger = false;
+            if (!other.GetComponent<ObjectOption>().canTrans)
+            {
+                if (other.GetComponent<ObjectOption>().canHit)
+                    Destroy(gameObject);
+            }
+            else
+            {
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                change.Change(other.gameObject);
+                //Debug.Log("asd");
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }

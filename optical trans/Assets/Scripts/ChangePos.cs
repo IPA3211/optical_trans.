@@ -11,7 +11,7 @@ public class ChangePos : MonoBehaviour {
 
     GameObject Object;
 
-    private Rigidbody2D rigidbody;
+    private new Rigidbody2D rigidbody;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +25,7 @@ public class ChangePos : MonoBehaviour {
 
     public void Change(GameObject other)
     {
+        Debug.Log("asd");
         Object = other;
         StartCoroutine("myYield");
     }
@@ -48,9 +49,9 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<OnGround>().enabled = false;
         Gun.SetActive(false);
 
-        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
-        yield return new WaitForSeconds(0.3F);
-        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
+        //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
+        yield return new WaitForSeconds(0.4F);
+        //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
         
         Object.transform.position = TransR;
         Charactor.transform.position = Trans;

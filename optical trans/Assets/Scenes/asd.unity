@@ -2030,8 +2030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 40e5b5548fcb891459cc8f8bacae41ae, type: 3}
   displacementMap: {fileID: 2800000, guid: a181ca8e3c62f3e4b8f183f6c586b032, type: 3}
-  intensity: 0.5
-  flipIntensity: 0.5
+  intensity: 1
+  flipIntensity: 1
   colorIntensity: 1
 --- !u!4 &1163441323 stripped
 Transform:
@@ -3195,7 +3195,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908605745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.49, y: -6.564, z: 0}
+  m_LocalPosition: {x: -24.56, y: -11.42, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 1575866534}
@@ -3528,7 +3528,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3}
-  m_Size: {x: 0.9, y: 2.25}
+  m_Size: {x: 0.9, y: 2}
   m_Direction: 0
 --- !u!4 &1914685791 stripped
 Transform:
