@@ -29,6 +29,11 @@ public class Menu : MonoBehaviour {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }
 
+    public void OnOffWithOutCanvas() {
+        paused = !paused;
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+    }
+
 	public void Restart() {
 		SceneManager.LoadScene (scenename, LoadSceneMode.Single);
         Time.timeScale = 1;

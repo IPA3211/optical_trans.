@@ -71,6 +71,7 @@ MonoBehaviour:
   BulletSpeed: 25
   Charactor: {fileID: 100000, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
   DestroyTime: 5
+  GlitchTime: 3
 --- !u!212 &212142969440478380
 SpriteRenderer:
   m_ObjectHideFlags: 1
