@@ -6,25 +6,44 @@ public class ChangePos : MonoBehaviour {
 
     public GameObject Charactor;
     public GameObject Gun;
+    public CircleCollider2D[] asd = new CircleCollider2D[2];
     Vector2 Trans = Vector2.zero;
     Vector2 TransR = Vector2.zero;
 
     GameObject Object;
+    Menu menu;
 
     private new Rigidbody2D rigidbody;
-
     // Use this for initialization
     void Start () {
-		
-	}
+        Charactor = GameObject.Find("DemoUnityChan2D");
+        Gun = GameObject.Find("Gun");
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Charactor == null)
+        {
+            Charactor = GameObject.Find("DemoUnityChan2D");
+        }
+
+        if (Gun == null)
+        {
+            Gun = GameObject.Find("P_Gun");
+        }
+    }
 
     public void Change(GameObject other)
     {
+        if (Charactor == null)
+        {
+            Charactor = GameObject.Find("DemoUnityChan2D");
+        }
+
+        if (Gun == null)
+        {
+            Gun = GameObject.Find("P_Gun");
+        }
         Debug.Log("asd");
         Object = other;
         StartCoroutine("myYield");
@@ -37,20 +56,30 @@ public class ChangePos : MonoBehaviour {
     }
     IEnumerator myYield()
     {
+        //menu = GameObject.Find("Script").GetComponent<Menu>();
         Trans = Object.transform.position;
         TransR = Charactor.transform.position;
         TransR.y = (float)(TransR.y - 0.355);	//바닥에서 순간이동시켰을대 바닥에 딱붙게함 이 맞는 위가 아닐까?
 
+        //menu.OnOffWithOutCanvas();
+
         Object.SetActive(false);
         Charactor.GetComponent<SpriteRenderer>().enabled = false;
         Charactor.GetComponent<Animator>().enabled = false;
-        Charactor.GetComponent<CircleCollider2D>().enabled = false;
+        Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        asd = Charactor.GetComponents<CircleCollider2D>();
+        asd[0].enabled = false;
+        asd[1].enabled = false;
         Charactor.GetComponent<CapsuleCollider2D>().enabled = false;
         Charactor.GetComponent<OnGround>().enabled = false;
         Gun.SetActive(false);
 
         //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
-        yield return new WaitForSeconds(0.4F);
+        float WTime = Time.realtimeSinceStartup + 0.2f;
+        while (Time.realtimeSinceStartup < WTime)
+        {
+            yield return 0;
+        }
         //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
         
         Object.transform.position = TransR;
@@ -59,10 +88,14 @@ public class ChangePos : MonoBehaviour {
         Object.SetActive(true);
         Charactor.GetComponent<SpriteRenderer>().enabled = true;
         Charactor.GetComponent<Animator>().enabled = true;
-        Charactor.GetComponent<CircleCollider2D>().enabled = true;
+        Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        asd[0].enabled = true;
+        asd[1].enabled = true;
         Charactor.GetComponent<CapsuleCollider2D>().enabled = true;
         Charactor.GetComponent<OnGround>().enabled = true;
         Gun.SetActive(true);
+
+        //menu.OnOffWithOutCanvas();
 
 
         rigidbody = Charactor.GetComponent<Rigidbody2D>();

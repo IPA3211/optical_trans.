@@ -6,6 +6,8 @@ public class ExampleClass : MonoBehaviour
     public GameObject cha;
     public GameObject bar;
 
+    Vector2 wp3;
+
     private bool paused;
 
     float angle_r;
@@ -30,7 +32,17 @@ public class ExampleClass : MonoBehaviour
                     //Debug.Log(hit.collider.name);
                 }
             }
-            Vector2 wp3 = cha.transform.position;
+            if (cha == null) {
+                cha = GameObject.Find("DemoUnityChan2D");
+                wp3 = cha.transform.position;
+            }
+            else {
+                wp3 = cha.transform.position;
+            }
+
+            if (bar == null) {
+                bar = GameObject.Find("P_Gun");
+            }
             Vector2 wp2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             Vector2 asd;

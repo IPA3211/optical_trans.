@@ -1,6 +1,7 @@
 fileFormatVersion: 2
-guid: 025dd04cabfc64bfc8094b98f02d2774
-timeCreated: 18446744011573954816
+guid: f6c6f022f92fcb14595f39a9feb3ea39
+timeCreated: 1515586769
+licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: 
-  fontNames: []
+  fontName: Silkscreen
+  fontNames:
+  - Silkscreen
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

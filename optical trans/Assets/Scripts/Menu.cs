@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour {
 	public static string scenename;
     public GameObject canvas;
     public bool paused = false;
+    public static bool loading;
 	// Use this for initialization
 	void Start () {
 		scenename = SceneManager.GetActiveScene ().name;
@@ -35,6 +36,7 @@ public class Menu : MonoBehaviour {
     }
 
 	public void Restart() {
+        loading = false;
         StartCoroutine("myYield");
     }
     IEnumerator myYield()
@@ -44,11 +46,15 @@ public class Menu : MonoBehaviour {
         }
         GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene(scenename, LoadSceneMode.Single);
+        if (!loading)
+        {
+            SceneManager.LoadScene(scenename, LoadSceneMode.Single);
+            loading = !loading;
+        }
         Time.timeScale = 1;
-        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
-
-        
+        //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
+        //gameObject.GetComponent<ChangePos>().Charactor = GameObject.Find("DemoUnityChan2D");
+        //gameObject.GetComponent<ChangePos>().Gun = GameObject.Find("P_Gun");
     }
     
 }
