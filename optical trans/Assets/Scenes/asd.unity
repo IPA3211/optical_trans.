@@ -1772,6 +1772,56 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: f6c6f022f92fcb14595f39a9feb3ea39,
         type: 3}
+    - target: {fileID: 114617709677067782, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617709677067782, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617709677067782, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617709677067782, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617709677067782, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617709677067782, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_PhysicalUnit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224976359402630342, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224976359402630342, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224976359402630342, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224976359402630342, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2613d9fb1a4eb1d4bb7d9406b58aa5f5, type: 2}
   m_IsPrefabParent: 0
@@ -2038,7 +2088,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 113
   orthographic: 1
   orthographic size: 15.2
   m_Depth: -1
