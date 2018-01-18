@@ -14,6 +14,7 @@ public class UnityChan2DController : MonoBehaviour
     
     public LayerMask whatIsGround;
 	AudioSource reloadSound;
+    float otherObjSpeed;
 
     private Animator m_animator;
     private BoxCollider2D m_boxcollier2D;
@@ -88,7 +89,7 @@ public class UnityChan2DController : MonoBehaviour
         {
             Quaternion rot = transform.rotation;
             Flip =Mathf.Sign(move) == 1 ? false : true;
-            transform.rotation = Quaternion.Euler(rot.x, Mathf.Sign(move) == 1 ? 0 : 180, rot.z);
+            //transform.rotation = Quaternion.Euler(rot.x, Mathf.Sign(move) == 1 ? 0 : 180, rot.z);
         }
 
         m_rigidbody2D.velocity = new Vector2(move * maxSpeed, m_rigidbody2D.velocity.y);
@@ -152,6 +153,8 @@ public class UnityChan2DController : MonoBehaviour
     {
         if (other.tag == "DamageObject" && m_state == State.Normal)
         {
+            otherObjSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x;
+            Debug.Log(otherObjSpeed);
             m_state = State.Damaged;
             StartCoroutine(INTERNAL_OnDamage());
         }
@@ -171,7 +174,17 @@ public class UnityChan2DController : MonoBehaviour
 
         SendMessage("OnDamage", SendMessageOptions.DontRequireReceiver);
 
-        m_rigidbody2D.velocity = new Vector2(transform.right.x * backwardForce.x, transform.up.y * backwardForce.y);
+        if (m_rigidbody2D.velocity.x - otherObjSpeed > 0)
+        {
+            m_rigidbody2D.velocity = new Vector2(1 * backwardForce.x, transform.up.y * backwardForce.y);
+            if (transform.eulerAngles.z > -1 && transform.eulerAngles.z > 1) {
+            }
+        }
+        else if (m_rigidbody2D.velocity.x - otherObjSpeed < 0)
+            m_rigidbody2D.velocity = new Vector2(-1 * backwardForce.x, transform.up.y * backwardForce.y);
+        else {
+            m_rigidbody2D.velocity = new Vector2(transform.right.x * backwardForce.x, transform.up.y * backwardForce.y);
+        }
 
         yield return new WaitForSeconds(.2f);
 

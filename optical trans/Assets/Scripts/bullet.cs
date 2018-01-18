@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bullet: MonoBehaviour {
-
+    public enum BulletType { trans, turret }
+    public BulletType bulletType;
     public float BulletSpeed = 0;
-    float angle = 0;
-    float x = 0, y = 0;
 
     public GameObject Charactor;
     public float DestroyTime;
+
+    float angle = 0;
+    float x = 0, y = 0;
 
     private bool trigger = true;
     //Vector2 Trans = Vector2.zero;
@@ -25,6 +27,10 @@ public class bullet: MonoBehaviour {
         change = GameObject.Find("Script").GetComponent<ChangePos>();
 		Destroy (gameObject, DestroyTime);
         trigger = true;
+
+        if (bulletType == BulletType.turret) {
+            gameObject.tag = "DamageObject";
+        }
     }
 	
 	// Update is called once per frame
@@ -32,28 +38,39 @@ public class bullet: MonoBehaviour {
         y = Mathf.Sin(angle * Mathf.Deg2Rad) * BulletSpeed;
         x = Mathf.Cos(angle * Mathf.Deg2Rad) * BulletSpeed;
 
-        transform.position += new Vector3(x * Time.deltaTime, y * Time.deltaTime, 0);
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y);
+        //transform.position += new Vector3(x * Time.deltaTime, y * Time.deltaTime, 0);
     }
     void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log("in");
         if (trigger)
         {
-            Debug.Log(trigger);
-            trigger = false;
-            if (!other.GetComponent<ObjectOption>().canTrans)
+            if (bulletType == BulletType.trans)
+            {
+                Debug.Log(trigger);
+                trigger = false;
+                if (!other.GetComponent<ObjectOption>().canTrans)
+                {
+                    if (other.GetComponent<ObjectOption>().canHit)
+                        Destroy(gameObject);
+                }
+                else
+                {
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    change.Change(other.gameObject);
+                    //Debug.Log("asd");
+
+                    Destroy(gameObject);
+                }
+            }
+            else if (bulletType == BulletType.turret)
             {
                 if (other.GetComponent<ObjectOption>().canHit)
                     Destroy(gameObject);
             }
-            else
-            {
-                gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                change.Change(other.gameObject);
-                //Debug.Log("asd");
-
-                Destroy(gameObject);
-            }
         }
     }
+
+    
 }
