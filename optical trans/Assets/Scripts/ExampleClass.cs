@@ -50,9 +50,19 @@ public class ExampleClass : MonoBehaviour
             asd.x = wp2.x - wp3.x;
             asd.y = wp2.y - wp3.y;
 
-            float angle = Mathf.Atan2(asd.x, asd.y) * Mathf.Rad2Deg;
+            Quaternion rot = cha.transform.rotation;
 
-            bar.transform.rotation = Quaternion.Euler(0, 0, -angle + 90);
+            float angle = Mathf.Atan2(asd.x, asd.y) * Mathf.Rad2Deg;
+            if (-angle + 90 > -90 && -angle + 90 < 90)
+            {
+                cha.transform.rotation = Quaternion.Euler(rot.x, 0, rot.z);
+                bar.transform.rotation = Quaternion.Euler(0, 0, -angle + 90);
+            }
+            else
+            {
+                cha.transform.rotation = Quaternion.Euler(rot.x, 180, rot.z);
+                bar.transform.rotation = Quaternion.Euler(0, 0, -angle + 90);
+            }
         }
     }
 }

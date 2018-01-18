@@ -11,7 +11,7 @@ public class UnityChan2DController : MonoBehaviour
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
     public bool DoubleJump;
     public bool Flip;
-
+    
     public LayerMask whatIsGround;
 	AudioSource reloadSound;
 
