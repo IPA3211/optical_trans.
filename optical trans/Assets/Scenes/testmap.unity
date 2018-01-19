@@ -5764,7 +5764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
-  maxSpeed: 7
+  maxSpeed: 10
   jumpDelay: 0.05
   jumpPower: 15
   dieYVal: -100
