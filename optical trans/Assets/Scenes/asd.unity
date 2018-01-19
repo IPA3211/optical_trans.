@@ -4153,6 +4153,7 @@ GameObject:
   - component: {fileID: 1155296600}
   - component: {fileID: 1155296599}
   - component: {fileID: 1155296603}
+  - component: {fileID: 1155296604}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4239,6 +4240,20 @@ MonoBehaviour:
   intensity: 1
   flipIntensity: 1
   colorIntensity: 1
+--- !u!114 &1155296604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155296598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012f99d362d186748abc942553a02d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothTimeY: 0.02
+  smoothTimeX: 0.02
+  player: {fileID: 1908605745}
 --- !u!4 &1163441323 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a4e5a4326cc6447f885d6491a4a7543e, type: 2}
