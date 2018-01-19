@@ -1040,6 +1040,28 @@ Prefab:
       propertyPath: m_Name
       value: P_Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 212009538401912498, guid: 3b46f30001243114d9e5d09da6e9d310,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 436944ac78fd0b54486239737928c9a8,
+        type: 3}
+    - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.07701492
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.6585715
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
   m_IsPrefabParent: 0
