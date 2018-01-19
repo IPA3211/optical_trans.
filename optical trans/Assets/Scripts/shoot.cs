@@ -68,7 +68,10 @@ public class shoot : MonoBehaviour {
             if (Input.GetMouseButtonDown(0) && AmountOfBullet > 0)
             {
 				soundManager.instance.PlayGunFireSound ();
-                Instantiate(bullet, transform.position, transform.parent.rotation);
+                if (!GameObject.Find("Script").GetComponent<ExampleClass>().flip)
+                    Instantiate(bullet, transform.position, transform.parent.rotation);
+                else
+                    Instantiate(bullet, transform.position, Quaternion.Euler(180, 0, -transform.parent.eulerAngles.z));
                 AmountOfBullet--;
                 if (AmountOfBullet == 0)
                 {
