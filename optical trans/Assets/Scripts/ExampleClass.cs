@@ -61,7 +61,7 @@ public class ExampleClass : MonoBehaviour
             else
             {
                 cha.transform.rotation = Quaternion.Euler(rot.x, 180, rot.z);
-                bar.transform.rotation = Quaternion.Euler(0, 0, -angle + 90);
+                bar.transform.rotation = Quaternion.Euler(180, 0, angle - 90);
             }
         }
     }
