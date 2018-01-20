@@ -13,6 +13,8 @@ public class ChangePos : MonoBehaviour {
     GameObject Object;
     Menu menu;
 
+	public float warp_delaytime = 0.5f;	//초기값은 0.2f이다
+
     private new Rigidbody2D rigidbody;
     // Use this for initialization
     void Start () {
@@ -44,6 +46,7 @@ public class ChangePos : MonoBehaviour {
         {
             Gun = GameObject.Find("P_Gun");
         }
+		WarpSoundManager.instance.PlayWarpStartSound ();	//워프 시작사운드
         Debug.Log("asd");
         Object = other;
         StartCoroutine("myYield");
@@ -59,11 +62,11 @@ public class ChangePos : MonoBehaviour {
         //menu = GameObject.Find("Script").GetComponent<Menu>();
         Trans = Object.transform.position;
         TransR = Charactor.transform.position;
-        TransR.y = (float)(TransR.y - 0.085);	//바닥에서 순간이동시켰을대 바닥에 딱붙게함 이 맞는 위가 아닐까?
+        TransR.y = (float)(TransR.y - 0.085);	//바닥에서 순간이동시켰을대 바닥에 딱붙게함 이게 맞는 위치가 아닐까?
 
         //menu.OnOffWithOutCanvas();
 
-        Object.SetActive(false);
+		Object.SetActive(false);
         Charactor.GetComponent<SpriteRenderer>().enabled = false;
         Charactor.GetComponent<Animator>().enabled = false;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
@@ -75,13 +78,15 @@ public class ChangePos : MonoBehaviour {
         Gun.SetActive(false);
 
         //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
-        float WTime = Time.realtimeSinceStartup + 0.2f;
+		float WTime = Time.realtimeSinceStartup + warp_delaytime;
+
         while (Time.realtimeSinceStartup < WTime)
         {
             yield return 0;
         }
         //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
         
+		WarpSoundManager.instance.PlayWarpEndtSound ();	//워프 끝사운드
         Object.transform.position = TransR;
         Charactor.transform.position = Trans;
 
@@ -101,7 +106,7 @@ public class ChangePos : MonoBehaviour {
         rigidbody = Charactor.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0f);
 
-        Debug.Log("TransR :" + TransR.x + " " + TransR.y);
-        Debug.Log("Trans :" + Trans.x + " " + Trans.y);
+        //Debug.Log("TransR :" + TransR.x + " " + TransR.y);
+        //Debug.Log("Trans :" + Trans.x + " " + Trans.y);
     }
 }

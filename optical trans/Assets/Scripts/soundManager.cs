@@ -6,12 +6,13 @@ public class soundManager : MonoBehaviour
 {
     public AudioClip soundRelodaing; //재생할 소리를 변수로 담습니다.
 	public AudioClip gunfire;
+
     AudioSource myAudio; //AudioSorce 컴포넌트를 변수로 담습니다.
     public static soundManager instance;  //자기자신을 변수로 담습니다.
 
     void Awake() //Start보다도 먼저, 객체가 생성될때 호출됩니다
     {
-        if (soundManager.instance == null) //incetance가 비어있는지 검사합니다.
+        if (soundManager.instance == null) //instance가 비어있는지 검사합니다.
         {
             soundManager.instance = this; //자기자신을 담습니다.
         }
@@ -21,6 +22,7 @@ public class soundManager : MonoBehaviour
     {
         myAudio = this.gameObject.GetComponent<AudioSource>(); //AudioSource 오브젝트를 변수로 담습니다.
     }		
+
     void Update()
     {
 
@@ -32,6 +34,7 @@ public class soundManager : MonoBehaviour
 	}
 	public void PlayGunFireSound()
 	{
-		myAudio.PlayOneShot(gunfire); //soundRealodaing을 재생합니다.
+		myAudio.PlayOneShot(gunfire); //gunfire을 재생합니다.
 	}
+
 }
