@@ -59,7 +59,7 @@ public class ChangePos : MonoBehaviour {
         //menu = GameObject.Find("Script").GetComponent<Menu>();
         Trans = Object.transform.position;
         TransR = Charactor.transform.position;
-        TransR.y = (float)(TransR.y - 0.355);	//바닥에서 순간이동시켰을대 바닥에 딱붙게함 이 맞는 위가 아닐까?
+        TransR.y = (float)(TransR.y - 0.085);	//바닥에서 순간이동시켰을대 바닥에 딱붙게함 이 맞는 위가 아닐까?
 
         //menu.OnOffWithOutCanvas();
 

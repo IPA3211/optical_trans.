@@ -162,14 +162,11 @@ public class UnityChan2DController : MonoBehaviour
 
     IEnumerator INTERNAL_OnDamage()
     {
+        health--;
+        
         m_animator.Play(m_isGround ? "Damage" : "AirDamage");
         m_animator.Play("Idle");
-
-        health--;
-
-        if(health == 0)
-            GameObject.Find("Script").GetComponent<Menu>().Restart();
-
+            
         GetComponent<HealthView>().Onoff();
 
         SendMessage("OnDamage", SendMessageOptions.DontRequireReceiver);
@@ -177,12 +174,14 @@ public class UnityChan2DController : MonoBehaviour
         if (m_rigidbody2D.velocity.x - otherObjSpeed > 0)
         {
             m_rigidbody2D.velocity = new Vector2(1 * backwardForce.x, transform.up.y * backwardForce.y);
-            if (transform.eulerAngles.z > -1 && transform.eulerAngles.z > 1) {
+            if (transform.eulerAngles.z > -1 && transform.eulerAngles.z > 1)
+            {
             }
         }
         else if (m_rigidbody2D.velocity.x - otherObjSpeed < 0)
             m_rigidbody2D.velocity = new Vector2(-1 * backwardForce.x, transform.up.y * backwardForce.y);
-        else {
+        else
+        {
             m_rigidbody2D.velocity = new Vector2(transform.right.x * backwardForce.x, transform.up.y * backwardForce.y);
         }
 
@@ -192,8 +191,18 @@ public class UnityChan2DController : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
         }
-        m_animator.SetTrigger("Invincible Mode");
-        m_state = State.Invincible;
+        if (health == 0)
+        {
+            GameObject.Find("Script").GetComponent<Menu>().Restart();
+            m_animator.Play("Dead");
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        }
+        else
+        {
+            m_animator.SetTrigger("Invincible Mode");
+            m_state = State.Invincible;
+        }
+            
         yield return new WaitForSeconds(1.1f);
         GetComponent<HealthView>().Onoff();
     }
