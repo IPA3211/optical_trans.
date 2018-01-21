@@ -131,6 +131,7 @@ public class Menu : MonoBehaviour {
         }
 
         ChangeResolution();
+        ChangeVolume();
     }
 
     public void WhanChangeValue() {
@@ -166,6 +167,10 @@ public class Menu : MonoBehaviour {
                 Screen.SetResolution(960, 540, !windowToggle.GetComponent<Toggle>().isOn);
                 break;
         }
+    }
+
+    public void ChangeVolume() {
+        AudioListener.volume = soundSlider.GetComponent<Slider>().value;
     }
 }
 public struct OptionData {

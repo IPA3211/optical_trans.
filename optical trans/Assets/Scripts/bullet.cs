@@ -43,7 +43,6 @@ public class bullet: MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("in");
         if (trigger)
         {
             if (bulletType == BulletType.trans)
