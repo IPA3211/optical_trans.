@@ -53,6 +53,9 @@ public class bullet: MonoBehaviour {
                 {
                     if (other.GetComponent<ObjectOption>().canHit)
                         Destroy(gameObject);
+                    else {
+                        trigger = true;
+                    }
                 }
                 else
                 {
