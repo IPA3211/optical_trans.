@@ -185,12 +185,12 @@ public class UnityChan2DController : MonoBehaviour
             m_rigidbody2D.velocity = new Vector2(transform.right.x * backwardForce.x, transform.up.y * backwardForce.y);
         }
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
 
-        while (m_isGround == false)
-        {
-            yield return new WaitForFixedUpdate();
-        }
+        //while (m_isGround == false)
+        //{
+        //    yield return new WaitForFixedUpdate();
+        //}
         if (health == 0)
         {
             GameObject.Find("Script").GetComponent<Menu>().Restart();
