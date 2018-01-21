@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50955299488196080}
   - component: {fileID: 61450231132043960}
   - component: {fileID: 114077783551837760}
+  - component: {fileID: 114119199259416240}
   m_Layer: 0
   m_Name: bullet_turret
   m_TagString: Untagged
@@ -103,6 +104,19 @@ MonoBehaviour:
   BulletSpeed: 25
   Charactor: {fileID: 0}
   DestroyTime: 5
+--- !u!114 &114119199259416240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1452818465861820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889ec96fd2693aa4e939cfcc7d82defd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canTrans: 0
+  canHit: 0
 --- !u!212 &212745668516510002
 SpriteRenderer:
   m_ObjectHideFlags: 1
