@@ -2375,7 +2375,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 276817710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 53.52, z: 0}
+  m_LocalPosition: {x: -9, y: -8.11, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 336903565}
@@ -2999,6 +2999,12 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -0.047
       objectReference: {fileID: 0}
+    - target: {fileID: 114073749231698402, guid: 3b46f30001243114d9e5d09da6e9d310,
+        type: 2}
+      propertyPath: BulletTrailPrefab
+      value: 
+      objectReference: {fileID: 4491568955751968, guid: 61f35a2b985bdc848b31dfec4a37f9ec,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
   m_IsPrefabParent: 0
