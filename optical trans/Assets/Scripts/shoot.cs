@@ -12,6 +12,7 @@ public class shoot : MonoBehaviour {
 
     public GameObject reloadBar;
     public GameObject charactor;
+	public Transform BulletTrailPrefab;
 
     private float Delayed;
     private bool reloading;
@@ -72,6 +73,7 @@ public class shoot : MonoBehaviour {
                     Instantiate(bullet, transform.position, transform.parent.rotation);
                 else
                     Instantiate(bullet, transform.position, Quaternion.Euler(180, 0, -transform.parent.eulerAngles.z));
+				Effect ();
                 AmountOfBullet--;
                 if (AmountOfBullet == 0)
                 {
@@ -88,4 +90,9 @@ public class shoot : MonoBehaviour {
             }
         }
     }
+
+	void Effect()
+	{
+		Instantiate (BulletTrailPrefab, transform.position, transform.rotation);	
+	}
 }
