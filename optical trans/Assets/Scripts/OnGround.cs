@@ -22,5 +22,9 @@ public class OnGround : MonoBehaviour {
         {
             onGround = true;
         }
+
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y < -55f && onGround) {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, 0);
+        }
 	}
 }

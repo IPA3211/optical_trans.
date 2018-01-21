@@ -5,6 +5,7 @@ public class UnityChan2DController : MonoBehaviour
 {
     public int health = 3;
     public float maxSpeed = 10f;
+    public float minYVelocity = -100f;
     public float jumpDelay = 0.1f;
     public float jumpPower = 1000f;
     public float dieYVal = -100f;
@@ -80,6 +81,10 @@ public class UnityChan2DController : MonoBehaviour
 
         if (transform.position.y < dieYVal) {
             GameObject.Find("Script").GetComponent<Menu>().Restart();
+        }
+
+        if (minYVelocity > gameObject.GetComponent<Rigidbody2D>().velocity.y) {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, minYVelocity);
         }
     }
 
