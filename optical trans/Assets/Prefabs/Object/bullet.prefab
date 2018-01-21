@@ -92,6 +92,8 @@ MonoBehaviour:
   bulletType: 0
   BulletSpeed: 25
   Charactor: {fileID: 100000, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
+  BulletTrailPrefab: {fileID: 1591009836435840, guid: 61f35a2b985bdc848b31dfec4a37f9ec,
+    type: 2}
   DestroyTime: 2
 --- !u!212 &212142969440478380
 SpriteRenderer:
