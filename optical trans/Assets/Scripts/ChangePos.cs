@@ -13,7 +13,8 @@ public class ChangePos : MonoBehaviour {
     GameObject Object;
     Menu menu;
 
-	public float warp_delaytime = 0.5f;	//초기값은 0.2f이다
+	public float warp_delaytime = 0.1f;	//초기값은 0.2f이다
+	public int i;
 
     private new Rigidbody2D rigidbody;
     // Use this for initialization
@@ -47,7 +48,6 @@ public class ChangePos : MonoBehaviour {
             Gun = GameObject.Find("P_Gun");
         }
 		WarpSoundManager.instance.PlayWarpStartSound ();	//워프 시작사운드
-        Debug.Log("asd");
         Object = other;
         StartCoroutine("myYield");
     }
@@ -67,7 +67,9 @@ public class ChangePos : MonoBehaviour {
         //menu.OnOffWithOutCanvas();
 
 		Object.SetActive(false);
-        Charactor.GetComponent<SpriteRenderer>().enabled = false;
+
+		//float WaTime = Time.realtimeSinceStartup + warp_animationtime;
+		        
         Charactor.GetComponent<Animator>().enabled = false;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         asd = Charactor.GetComponents<CircleCollider2D>();
@@ -75,7 +77,16 @@ public class ChangePos : MonoBehaviour {
         asd[1].enabled = false;
         Charactor.GetComponent<CapsuleCollider2D>().enabled = false;
         Charactor.GetComponent<OnGround>().enabled = false;
-        Gun.SetActive(false);
+        
+		for(i = 0; i < 40; i++) {
+			if (Charactor.transform.localScale.x - 0.01f > 0)
+				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x - 0.05f, Charactor.transform.localScale.y - 0.05f, Charactor.transform.localScale.z);
+			else
+				break;
+			yield return new WaitForSeconds (0.0005f);
+		}
+		Gun.SetActive(false);
+		Charactor.GetComponent<SpriteRenderer>().enabled = false;
 
         //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
 		float WTime = Time.realtimeSinceStartup + warp_delaytime;
@@ -90,8 +101,19 @@ public class ChangePos : MonoBehaviour {
         Object.transform.position = TransR;
         Charactor.transform.position = Trans;
 
-        Object.SetActive(true);
+		Object.SetActive(true);
         Charactor.GetComponent<SpriteRenderer>().enabled = true;
+
+		for(i = 0; i < 40; i++) {
+			Debug.Log (Charactor.transform.localScale.x);
+			if(Charactor.transform.localScale.x + 0.01f < 0.9)
+				Charactor.transform.localScale = new Vector3(Charactor.transform.localScale.x + 0.05f, Charactor.transform.localScale.y + 0.05f, Charactor.transform.localScale.z);
+			else
+				break;
+			yield return new WaitForSeconds (0.0005f);
+		}
+
+		Charactor.transform.localScale = new Vector3(0.9f, 0.9f, Charactor.transform.localScale.z);
         Charactor.GetComponent<Animator>().enabled = true;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         asd[0].enabled = true;
@@ -99,6 +121,8 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<CapsuleCollider2D>().enabled = true;
         Charactor.GetComponent<OnGround>().enabled = true;
         Gun.SetActive(true);
+
+
 
         //menu.OnOffWithOutCanvas();
 

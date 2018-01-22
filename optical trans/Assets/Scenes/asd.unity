@@ -13202,7 +13202,8 @@ MonoBehaviour:
   asd:
   - {fileID: 0}
   - {fileID: 0}
-  warp_delaytime: 0.5
+  warp_delaytime: 0.25
+  i: 0
 --- !u!114 &1923586548
 MonoBehaviour:
   m_ObjectHideFlags: 0
