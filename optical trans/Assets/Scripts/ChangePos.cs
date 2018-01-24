@@ -105,7 +105,6 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<SpriteRenderer>().enabled = true;
 
 		for(i = 0; i < 40; i++) {
-			Debug.Log (Charactor.transform.localScale.x);
 			if(Charactor.transform.localScale.x + 0.01f < 0.9)
 				Charactor.transform.localScale = new Vector3(Charactor.transform.localScale.x + 0.05f, Charactor.transform.localScale.y + 0.05f, Charactor.transform.localScale.z);
 			else

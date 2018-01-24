@@ -2087,7 +2087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canTrans: 0
-  canHit: 1
+  canHit: 0
 --- !u!114 &276817714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3345,6 +3345,11 @@ Prefab:
     - target: {fileID: 1069508046948072, guid: 4f9997513f65aeb44bd35c7c8d9a25f6, type: 2}
       propertyPath: m_Name
       value: canon2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098699035989602, guid: 4f9997513f65aeb44bd35c7c8d9a25f6,
+        type: 2}
+      propertyPath: canTrans
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f9997513f65aeb44bd35c7c8d9a25f6, type: 2}
