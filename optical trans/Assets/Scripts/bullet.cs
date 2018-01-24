@@ -8,6 +8,7 @@ public class bullet: MonoBehaviour {
     public float BulletSpeed = 0;
 
     public GameObject Charactor;
+    public GameObject line;
     public float DestroyTime;
 
     float angle = 0;
@@ -52,8 +53,12 @@ public class bullet: MonoBehaviour {
                 if (!other.GetComponent<ObjectOption>().canTrans)
                 {
                     if (other.GetComponent<ObjectOption>().canHit)
+                    {
+                        Destroy(line);
                         Destroy(gameObject);
-                    else {
+                    }
+                    else
+                    {
                         trigger = true;
                     }
                 }
@@ -62,7 +67,7 @@ public class bullet: MonoBehaviour {
                     gameObject.GetComponent<CircleCollider2D>().enabled = false;
                     change.Change(other.gameObject);
                     //Debug.Log("asd");
-
+                    Destroy(line);
                     Destroy(gameObject);
                 }
             }

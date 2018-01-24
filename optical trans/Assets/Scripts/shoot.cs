@@ -19,6 +19,8 @@ public class shoot : MonoBehaviour {
 	private bool reload_sounded;
     private bool paused;
 
+    GameObject shot;
+
 
 
 
@@ -70,10 +72,15 @@ public class shoot : MonoBehaviour {
             {
 				soundManager.instance.PlayGunFireSound ();
                 if (!GameObject.Find("Script").GetComponent<ExampleClass>().flip)
-                    Instantiate(bullet, transform.position, transform.parent.rotation);
+                {
+                    GameObject obj = Instantiate(bullet, transform.position, transform.parent.rotation).gameObject;
+                    obj.GetComponent<bullet>().line = Instantiate(BulletTrailPrefab, transform.position, transform.rotation).gameObject;
+                }
                 else
-                    Instantiate(bullet, transform.position, Quaternion.Euler(180, 0, -transform.parent.eulerAngles.z));
-				Effect ();
+                {
+                    GameObject obj = Instantiate(bullet, transform.position, Quaternion.Euler(180, 0, -transform.parent.eulerAngles.z)).gameObject;
+                    obj.GetComponent<bullet>().line = Instantiate(BulletTrailPrefab, transform.position, transform.rotation).gameObject;
+                }
                 AmountOfBullet--;
                 if (AmountOfBullet == 0)
                 {
@@ -93,6 +100,6 @@ public class shoot : MonoBehaviour {
 
 	void Effect()
 	{
-		Instantiate (BulletTrailPrefab, transform.position, transform.rotation);	
+        shot = Instantiate(BulletTrailPrefab, transform.position, transform.rotation).gameObject;
 	}
 }
