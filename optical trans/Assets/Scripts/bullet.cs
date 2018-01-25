@@ -49,26 +49,29 @@ public class bullet: MonoBehaviour {
             if (bulletType == BulletType.trans)
             {
                 Debug.Log(trigger);
-                trigger = false;
-                if (!other.GetComponent<ObjectOption>().canTrans)
+                if (other.tag != "Player")
                 {
-                    if (other.GetComponent<ObjectOption>().canHit)
+                    trigger = false;
+                    if (!other.GetComponent<ObjectOption>().canTrans)
                     {
-                        Destroy(line);
-                        Destroy(gameObject);
+                        if (other.GetComponent<ObjectOption>().canHit)
+                        {
+                            Destroy(line);
+                            Destroy(gameObject);
+                        }
+                        else
+                        {
+                            trigger = true;
+                        }
                     }
                     else
                     {
-                        trigger = true;
+                        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                        change.Change(other.gameObject);
+                        //Debug.Log("asd");
+                        Destroy(line);
+                        Destroy(gameObject);
                     }
-                }
-                else
-                {
-                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                    change.Change(other.gameObject);
-                    //Debug.Log("asd");
-                    Destroy(line);
-                    Destroy(gameObject);
                 }
             }
             else if (bulletType == BulletType.turret)
