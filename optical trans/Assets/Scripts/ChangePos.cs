@@ -16,6 +16,7 @@ public class ChangePos : MonoBehaviour {
     Menu menu;
 
 	public float warp_delaytime = 0.1f;	//초기값은 0.2f이다
+	public float obj_scaletime;
 	public int i;
 
     private new Rigidbody2D rigidbody;
@@ -51,14 +52,15 @@ public class ChangePos : MonoBehaviour {
         }
 		WarpSoundManager.instance.PlayWarpStartSound ();	//워프 시작사운드
         Object = other;
+		obj_scaletime = Object.transform.localScale.x / 18f;
+		Debug.Log ("localscale.x : "+Object.transform.localScale.x +" time : " + obj_scaletime);
         StartCoroutine("myYield");
     }
 
     public void StopSecond() {
-        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
-        
-        
+        GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;       
     }
+
     IEnumerator myYield()
     {
         //menu = GameObject.Find("Script").GetComponent<Menu>();
@@ -89,10 +91,10 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<OnGround>().enabled = false;
         Charactor.GetComponent<SpriteOutline>().outlineSize = 1;
         
-		for (i = 0; i < 40; i++) {
+		for (i = 0; i < 25; i++) {
 			if (Charactor.transform.localScale.x - 0.05f > 0 && Object.transform.localScale.x - 0.05f > 0) {
 				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x - 0.05f, Charactor.transform.localScale.y - 0.05f, Charactor.transform.localScale.z);
-				Object.transform.localScale = new Vector3 (Object.transform.localScale.x - 0.05f, Object.transform.localScale.y - 0.05f, Object.transform.localScale.z);
+				Object.transform.localScale = new Vector3 (Object.transform.localScale.x - obj_scaletime, Object.transform.localScale.y - obj_scaletime, Object.transform.localScale.z);
 			}
 			else
 				break;
@@ -119,10 +121,11 @@ public class ChangePos : MonoBehaviour {
 		Object.SetActive(true);
         Charactor.GetComponent<SpriteRenderer>().enabled = true;
 
-		for(i = 0; i < 40; i++) {
-			if (Charactor.transform.localScale.x + 0.05f < 0.9 && Object.transform.localScale.x + 0.05f < Objectscale.x) {
+		for(i = 0; i < 25; i++) {
+			
+			if (Charactor.transform.localScale.x + 0.05f < 0.9 /*&& Object.transform.localScale.x + 0.05f < Objectscale.x*/) {
 				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x + 0.05f, Charactor.transform.localScale.y + 0.05f, Charactor.transform.localScale.z);
-				Object.transform.localScale = new Vector3 (Object.transform.localScale.x + 0.05f, Object.transform.localScale.y + 0.05f, Object.transform.localScale.z);
+				Object.transform.localScale = new Vector3 (Object.transform.localScale.x + obj_scaletime, Object.transform.localScale.y + obj_scaletime, Object.transform.localScale.z);
 			}
 			else
 				break;

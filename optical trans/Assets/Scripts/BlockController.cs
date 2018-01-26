@@ -3,13 +3,9 @@
 public class BlockController : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
-
     public GameObject brokenBlock;
-
     public AudioClip hitClip;
-
     public bool canBreak;
-
     private BoxCollider2D m_boxCollider2D;
 
     private void Awake()

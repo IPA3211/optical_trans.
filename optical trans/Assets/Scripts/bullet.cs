@@ -68,7 +68,7 @@ public class bullet: MonoBehaviour {
                     {
                         gameObject.GetComponent<CircleCollider2D>().enabled = false;
                         change.Change(other.gameObject);
-                        //Debug.Log("asd");
+            
                         Destroy(line);
                         Destroy(gameObject);
                     }

@@ -13069,6 +13069,7 @@ MonoBehaviour:
   - {fileID: 0}
   mat: {fileID: 2100000, guid: cf667fc7dffe8f24299451058aceabfc, type: 2}
   warp_delaytime: 0.25
+  obj_scaletime: 0
   i: 0
 --- !u!114 &1923586548
 MonoBehaviour:
