@@ -10,6 +10,7 @@ public class ChangePos : MonoBehaviour {
     public Material mat;
     Vector2 Trans = Vector2.zero;
     Vector2 TransR = Vector2.zero;
+	Vector2 Objectscale;
 
     GameObject Object;
     Menu menu;
@@ -62,11 +63,16 @@ public class ChangePos : MonoBehaviour {
     {
         //menu = GameObject.Find("Script").GetComponent<Menu>();
         Trans = Object.transform.position;
+		Objectscale = Object.transform.localScale;
         TransR = Charactor.transform.position;
         TransR.y = (float)(TransR.y - 0.085);   //바닥에서 순간이동시켰을대 바닥에 딱붙게함 이게 맞는 위치가 아닐까?
 
         //menu.OnOffWithOutCanvas();
 
+<<<<<<< HEAD
+		//float WaTime = Time.realtimeSinceStartup + warp_animationtime;
+		        
+=======
         //Object.SetActive(false);
         Object.GetComponent<SpriteRenderer>().material = mat;
 
@@ -80,6 +86,7 @@ public class ChangePos : MonoBehaviour {
 
         //float WaTime = Time.realtimeSinceStartup + warp_animationtime;
 
+>>>>>>> 332345b7ada9487ae319f614d8714ebebbb052a9
         Charactor.GetComponent<Animator>().enabled = false;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         asd = Charactor.GetComponents<CircleCollider2D>();
@@ -89,13 +96,17 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<OnGround>().enabled = false;
         Charactor.GetComponent<SpriteOutline>().outlineSize = 1;
         
-		for(i = 0; i < 40; i++) {
-			if (Charactor.transform.localScale.x - 0.01f > 0)
+		for (i = 0; i < 40; i++) {
+			if (Charactor.transform.localScale.x - 0.05f > 0 && Object.transform.localScale.x - 0.05f > 0) {
 				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x - 0.05f, Charactor.transform.localScale.y - 0.05f, Charactor.transform.localScale.z);
+				Object.transform.localScale = new Vector3 (Object.transform.localScale.x - 0.05f, Object.transform.localScale.y - 0.05f, Object.transform.localScale.z);
+			}
 			else
 				break;
 			yield return new WaitForSeconds (0.0005f);
 		}
+
+		Object.SetActive(false);
 		Gun.SetActive(false);
 		Charactor.GetComponent<SpriteRenderer>().enabled = false;
 
@@ -116,13 +127,16 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<SpriteRenderer>().enabled = true;
 
 		for(i = 0; i < 40; i++) {
-			if(Charactor.transform.localScale.x + 0.01f < 0.9)
-				Charactor.transform.localScale = new Vector3(Charactor.transform.localScale.x + 0.05f, Charactor.transform.localScale.y + 0.05f, Charactor.transform.localScale.z);
+			if (Charactor.transform.localScale.x + 0.05f < 0.9 && Object.transform.localScale.x + 0.05f < Objectscale.x) {
+				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x + 0.05f, Charactor.transform.localScale.y + 0.05f, Charactor.transform.localScale.z);
+				Object.transform.localScale = new Vector3 (Object.transform.localScale.x + 0.05f, Object.transform.localScale.y + 0.05f, Object.transform.localScale.z);
+			}
 			else
 				break;
 			yield return new WaitForSeconds (0.0005f);
 		}
 
+		Object.transform.localScale = Objectscale;
 		Charactor.transform.localScale = new Vector3(0.9f, 0.9f, Charactor.transform.localScale.z);
         Charactor.GetComponent<Animator>().enabled = true;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
