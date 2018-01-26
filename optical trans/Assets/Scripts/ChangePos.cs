@@ -7,6 +7,7 @@ public class ChangePos : MonoBehaviour {
     public GameObject Charactor;
     public GameObject Gun;
     public CircleCollider2D[] asd = new CircleCollider2D[2];
+    public Material mat;
     Vector2 Trans = Vector2.zero;
     Vector2 TransR = Vector2.zero;
 
@@ -62,14 +63,23 @@ public class ChangePos : MonoBehaviour {
         //menu = GameObject.Find("Script").GetComponent<Menu>();
         Trans = Object.transform.position;
         TransR = Charactor.transform.position;
-        TransR.y = (float)(TransR.y - 0.085);	//바닥에서 순간이동시켰을대 바닥에 딱붙게함 이게 맞는 위치가 아닐까?
+        TransR.y = (float)(TransR.y - 0.085);   //바닥에서 순간이동시켰을대 바닥에 딱붙게함 이게 맞는 위치가 아닐까?
 
         //menu.OnOffWithOutCanvas();
 
-		Object.SetActive(false);
+        //Object.SetActive(false);
+        Object.GetComponent<SpriteRenderer>().material = mat;
 
-		//float WaTime = Time.realtimeSinceStartup + warp_animationtime;
-		        
+        if (Object.GetComponent<SpriteOutline>() == null)
+        {
+            Object.AddComponent<SpriteOutline>();
+        }
+
+        Object.GetComponent<SpriteOutline>().color = Color.yellow;
+        Object.GetComponent<SpriteOutline>().outlineSize = 1;
+
+        //float WaTime = Time.realtimeSinceStartup + warp_animationtime;
+
         Charactor.GetComponent<Animator>().enabled = false;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         asd = Charactor.GetComponents<CircleCollider2D>();
@@ -77,6 +87,7 @@ public class ChangePos : MonoBehaviour {
         asd[1].enabled = false;
         Charactor.GetComponent<CapsuleCollider2D>().enabled = false;
         Charactor.GetComponent<OnGround>().enabled = false;
+        Charactor.GetComponent<SpriteOutline>().outlineSize = 1;
         
 		for(i = 0; i < 40; i++) {
 			if (Charactor.transform.localScale.x - 0.01f > 0)
@@ -119,6 +130,8 @@ public class ChangePos : MonoBehaviour {
         asd[1].enabled = true;
         Charactor.GetComponent<CapsuleCollider2D>().enabled = true;
         Charactor.GetComponent<OnGround>().enabled = true;
+        Charactor.GetComponent<SpriteOutline>().outlineSize = 0;
+        Object.GetComponent<SpriteOutline>().outlineSize = 0;
         Gun.SetActive(true);
 
 
