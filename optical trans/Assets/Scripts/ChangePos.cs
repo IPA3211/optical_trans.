@@ -68,11 +68,7 @@ public class ChangePos : MonoBehaviour {
         TransR.y = (float)(TransR.y - 0.085);   //바닥에서 순간이동시켰을대 바닥에 딱붙게함 이게 맞는 위치가 아닐까?
 
         //menu.OnOffWithOutCanvas();
-
-<<<<<<< HEAD
-		//float WaTime = Time.realtimeSinceStartup + warp_animationtime;
-		        
-=======
+        
         //Object.SetActive(false);
         Object.GetComponent<SpriteRenderer>().material = mat;
 
@@ -83,10 +79,7 @@ public class ChangePos : MonoBehaviour {
 
         Object.GetComponent<SpriteOutline>().color = Color.yellow;
         Object.GetComponent<SpriteOutline>().outlineSize = 1;
-
-        //float WaTime = Time.realtimeSinceStartup + warp_animationtime;
-
->>>>>>> 332345b7ada9487ae319f614d8714ebebbb052a9
+        
         Charactor.GetComponent<Animator>().enabled = false;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         asd = Charactor.GetComponents<CircleCollider2D>();
