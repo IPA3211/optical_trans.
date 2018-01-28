@@ -12,15 +12,11 @@ public class Potal : MonoBehaviour {
     Vector3 defaultSize;
 
     void OnTriggerStay2D(Collider2D other) {
-        
-        if (other.GetComponent<UnityChan2DController>() != null) {
-            other.GetComponent<UnityChan2DController>().DoubleJump = false;
-        }
+        if(other.tag.Equals("player"))
         flowTime += Time.deltaTime;
-        other.transform.localScale = new Vector3();
-
-        if (flowTime > wapeTime)
-            flowTime = wapeTime;
+        if (wapeTime < flowTime) {
+            
+        }
         
     }
     void OnTriggerExit2D(Collider2D other)
