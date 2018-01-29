@@ -2916,11 +2916,11 @@ Prefab:
         type: 3}
     - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.033
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.024
+      value: -0.045
       objectReference: {fileID: 0}
     - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
       propertyPath: m_LocalScale.x
@@ -5415,6 +5415,7 @@ GameObject:
   - component: {fileID: 745267361}
   - component: {fileID: 745267358}
   - component: {fileID: 745267357}
+  - component: {fileID: 745267362}
   m_Layer: 0
   m_Name: portal
   m_TagString: Untagged
@@ -5494,7 +5495,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 1d5ad2276871f264b957de740740a982, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 73a9e7dad06923c4ca61b0f71adb9eae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5511,7 +5512,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 745267356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 5.26, z: 0}
+  m_LocalPosition: {x: 0.35, y: -10.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2084525455}
@@ -5538,6 +5539,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &745267362
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745267356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ab044d81be34684e8ac22db9db03dce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &746050634
 GameObject:
   m_ObjectHideFlags: 0

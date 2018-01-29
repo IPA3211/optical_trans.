@@ -9,18 +9,25 @@ public class Potal : MonoBehaviour {
     bool trigger = true;
     float flowTime;
     float defaultGravity;
+    Animator ani;
     Vector3 defaultSize;
 
+    void Start()
+    {
+        ani = GetComponentInParent<Animator>();
+    }
+
     void OnTriggerStay2D(Collider2D other) {
-        if(other.tag.Equals("player"))
+        ani.speed = 2;
+        if (other.tag.Equals("player"))
         flowTime += Time.deltaTime;
         if (wapeTime < flowTime) {
-            
         }
         
     }
     void OnTriggerExit2D(Collider2D other)
     {
         flowTime = 0;
+        ani.speed = 0.5f;
     }
 }
