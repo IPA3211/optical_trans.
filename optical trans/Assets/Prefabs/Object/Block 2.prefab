@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 21200000}
   - component: {fileID: 6100000}
   - component: {fileID: 11400000}
+  - component: {fileID: 114160487078318208}
   - component: {fileID: 50179554916535914}
   - component: {fileID: 114869699727225360}
   m_Layer: 8
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: -10, z: 0}
+  m_LocalPosition: {x: 4, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,6 +76,7 @@ MonoBehaviour:
   brokenBlock: {fileID: 0}
   hitClip: {fileID: 8300000, guid: 7f8143aad405640449bf253091449c6b, type: 3}
   canBreak: 0
+  obj_scaletime: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -150,6 +152,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &114160487078318208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21bba5cf95e13804b84ed6cdf7e58509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114869699727225360
 MonoBehaviour:
   m_ObjectHideFlags: 1

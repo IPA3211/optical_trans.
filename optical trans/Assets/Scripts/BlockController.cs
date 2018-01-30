@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class BlockController : MonoBehaviour
 {
@@ -7,6 +8,12 @@ public class BlockController : MonoBehaviour
     public AudioClip hitClip;
     public bool canBreak;
     private BoxCollider2D m_boxCollider2D;
+    public float obj_scaletime;
+    float warp_delaytime;
+
+    Vector2 transPos;
+    Material matrial;
+    Color col;
 
     private void Awake()
     {
