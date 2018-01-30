@@ -79,7 +79,7 @@ public class ChangePos : MonoBehaviour {
             Object.AddComponent<SpriteOutline>();
         }
 
-        Object.GetComponent<SpriteOutline>().color = Color.yellow;
+        Object.GetComponent<SpriteOutline>().color = Charactor.GetComponent<SpriteOutline>().color;
         Object.GetComponent<SpriteOutline>().outlineSize = 1;
         
         Charactor.GetComponent<Animator>().enabled = false;

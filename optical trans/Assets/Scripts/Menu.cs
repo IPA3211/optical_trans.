@@ -23,6 +23,7 @@ public class Menu : MonoBehaviour {
     public bool paused = false;
     public bool option = false;
     public static bool loading;
+    string nextScene;
     
     // Use this for initialization
 
@@ -68,6 +69,12 @@ public class Menu : MonoBehaviour {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }
 
+    public void NextScene(string scene) {
+        nextScene = scene;
+        loading = false;
+        StartCoroutine("myYield");
+    }
+
     IEnumerator myYield()
     {
         if (paused)
@@ -80,7 +87,7 @@ public class Menu : MonoBehaviour {
         paused = false;
         if (!loading)
         {
-            SceneManager.LoadScene(scenename, LoadSceneMode.Single);
+            SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
             loading = !loading;
         }
         Time.timeScale = 1;
@@ -90,6 +97,7 @@ public class Menu : MonoBehaviour {
     }
     
     public void Restart() {
+        nextScene = scenename;
         loading = false;
         StartCoroutine("myYield");
     }

@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031e82adce5821d4fabbef17bc595ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 0, a: 1}
+  color: {r: 0, g: 0.13103437, b: 1, a: 0.585}
   outlineSize: 0
 --- !u!1001 &278502850
 Prefab:
@@ -13086,6 +13086,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mat: {fileID: 2100000, guid: cf667fc7dffe8f24299451058aceabfc, type: 2}
+  color: {r: 0, g: 0, b: 0, a: 0}
   warp_delaytime: 0.25
   obj_scaletime: 0
   i: 0
@@ -13687,6 +13688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wapeTime: 3
+  nextStage: awsdw
 --- !u!114 &2084525458
 MonoBehaviour:
   m_ObjectHideFlags: 0

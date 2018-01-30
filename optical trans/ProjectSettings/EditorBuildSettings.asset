@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/asd.unity
     guid: d95117131979bbb40a5738c68f0f8644
+  - enabled: 1
+    path: Assets/Scenes/awsdw.unity
+    guid: a86e19e9c432d5e4791e95c5af4b5f4f
