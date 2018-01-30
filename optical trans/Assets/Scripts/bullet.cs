@@ -52,25 +52,28 @@ public class bullet: MonoBehaviour {
                 if (other.tag != "Player")
                 {
                     trigger = false;
-                    if (!other.GetComponent<ObjectOption>().canTrans)
+                    if (other.GetComponent<ObjectOption>() != null)
                     {
-                        if (other.GetComponent<ObjectOption>().canHit)
+                        if (!other.GetComponent<ObjectOption>().canTrans)
                         {
-                            Destroy(line);
-                            Destroy(gameObject);
+                            if (other.GetComponent<ObjectOption>().canHit)
+                            {
+                                Destroy(line);
+                                Destroy(gameObject);
+                            }
+                            else
+                            {
+                                trigger = true;
+                            }
                         }
                         else
                         {
-                            trigger = true;
+                            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                            change.Change(other.gameObject);
+
+                            Destroy(line);
+                            Destroy(gameObject);
                         }
-                    }
-                    else
-                    {
-                        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                        change.Change(other.gameObject);
-            
-                        Destroy(line);
-                        Destroy(gameObject);
                     }
                 }
             }

@@ -22,7 +22,7 @@ public class ChangePositionOnObject : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().material = mat;
         }
 
-        if (gameObject.GetComponentInParent<SpriteOutline>() == null)
+        if (gameObject.GetComponent<SpriteOutline>() == null)
         {
             gameObject.AddComponent<SpriteOutline>();
         }

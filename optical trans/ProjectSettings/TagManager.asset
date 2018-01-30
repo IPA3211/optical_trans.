@@ -7,6 +7,7 @@ TagManager:
   - DamageObject
   - coin
   - Ground
+  - BigDamageObject
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class Potal : MonoBehaviour {
             loading = false;
             GameObject.Find("Script").GetComponent<Menu>().NextScene(nextStage);
         }
-        Debug.Log(flowTime);
+        //Debug.Log(flowTime);
     }
     void OnTriggerExit2D(Collider2D other)
     {
