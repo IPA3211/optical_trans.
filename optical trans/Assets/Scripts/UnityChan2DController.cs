@@ -156,7 +156,7 @@ public class UnityChan2DController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "DamageObject" && m_state == State.Normal)
+        if ((other.tag == "DamageObject" || other.tag == "BigDamageObject") && m_state == State.Normal)
         {
             otherObjSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x;
             Debug.Log(otherObjSpeed);

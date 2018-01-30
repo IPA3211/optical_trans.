@@ -65,22 +65,29 @@ public class ChangePos : MonoBehaviour {
     {
         //menu = GameObject.Find("Script").GetComponent<Menu>();
         Trans = Object.transform.position;
-		Objectscale = Object.transform.localScale;
+		//Objectscale = Object.transform.localScale;
         TransR = Charactor.transform.position;
         TransR.y = (float)(TransR.y - 0.085);   //바닥에서 순간이동시켰을대 바닥에 딱붙게함 이게 맞는 위치가 아닐까?
 
+
+
         //menu.OnOffWithOutCanvas();
-        
+
         //Object.SetActive(false);
-        Object.GetComponent<SpriteRenderer>().material = mat;
-
-        if (Object.GetComponent<SpriteOutline>() == null)
-        {
-            Object.AddComponent<SpriteOutline>();
+        if (Object.GetComponent<ChangePositionOnObject>() != null)
+            Object.GetComponent<ChangePositionOnObject>().ChangePosition(TransR, mat, Charactor.GetComponent<SpriteOutline>().color, warp_delaytime);
+        else {
+            Object.AddComponent<ChangePositionOnObject>().ChangePosition(TransR, mat, Charactor.GetComponent<SpriteOutline>().color, warp_delaytime);
         }
+        //Object.GetComponent<SpriteRenderer>().material = mat;
 
-        Object.GetComponent<SpriteOutline>().color = Charactor.GetComponent<SpriteOutline>().color;
-        Object.GetComponent<SpriteOutline>().outlineSize = 1;
+        //if (Object.GetComponent<SpriteOutline>() == null)
+        //{
+        //    Object.AddComponent<SpriteOutline>();
+        //}
+
+        //Object.GetComponent<SpriteOutline>().color = Charactor.GetComponent<SpriteOutline>().color;
+        //Object.GetComponent<SpriteOutline>().outlineSize = 1;
         
         Charactor.GetComponent<Animator>().enabled = false;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
@@ -94,14 +101,14 @@ public class ChangePos : MonoBehaviour {
 		for (i = 0; i < 25; i++) {
 			if (Charactor.transform.localScale.x - 0.05f > 0 && Object.transform.localScale.x - 0.05f > 0) {
 				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x - 0.05f, Charactor.transform.localScale.y - 0.05f, Charactor.transform.localScale.z);
-				Object.transform.localScale = new Vector3 (Object.transform.localScale.x - obj_scaletime, Object.transform.localScale.y - obj_scaletime, Object.transform.localScale.z);
+				//Object.transform.localScale = new Vector3 (Object.transform.localScale.x - obj_scaletime, Object.transform.localScale.y - obj_scaletime, Object.transform.localScale.z);
 			}
 			else
 				break;
 			yield return new WaitForSeconds (0.0005f);
 		}
 
-		Object.SetActive(false);
+		//Object.SetActive(false);
 		Gun.SetActive(false);
 		Charactor.GetComponent<SpriteRenderer>().enabled = false;
 
@@ -115,24 +122,24 @@ public class ChangePos : MonoBehaviour {
         //GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = false;
         
 		WarpSoundManager.instance.PlayWarpEndtSound ();	//워프 끝사운드
-        Object.transform.position = TransR;
+        //Object.transform.position = TransR;
         Charactor.transform.position = Trans;
 
-		Object.SetActive(true);
+		//Object.SetActive(true);
         Charactor.GetComponent<SpriteRenderer>().enabled = true;
 
 		for(i = 0; i < 25; i++) {
 			
 			if (Charactor.transform.localScale.x + 0.05f < 0.9 /*&& Object.transform.localScale.x + 0.05f < Objectscale.x*/) {
 				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x + 0.05f, Charactor.transform.localScale.y + 0.05f, Charactor.transform.localScale.z);
-				Object.transform.localScale = new Vector3 (Object.transform.localScale.x + obj_scaletime, Object.transform.localScale.y + obj_scaletime, Object.transform.localScale.z);
+				//Object.transform.localScale = new Vector3 (Object.transform.localScale.x + obj_scaletime, Object.transform.localScale.y + obj_scaletime, Object.transform.localScale.z);
 			}
 			else
 				break;
 			yield return new WaitForSeconds (0.0005f);
 		}
 
-		Object.transform.localScale = Objectscale;
+		//Object.transform.localScale = Objectscale;
 		Charactor.transform.localScale = new Vector3(0.9f, 0.9f, Charactor.transform.localScale.z);
         Charactor.GetComponent<Animator>().enabled = true;
         Charactor.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -141,7 +148,7 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<CapsuleCollider2D>().enabled = true;
         Charactor.GetComponent<OnGround>().enabled = true;
         Charactor.GetComponent<SpriteOutline>().outlineSize = 0;
-        Object.GetComponent<SpriteOutline>().outlineSize = 0;
+        //Object.GetComponent<SpriteOutline>().outlineSize = 0;
         Gun.SetActive(true);
 
 
