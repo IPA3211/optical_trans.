@@ -92,15 +92,15 @@ LineRenderer:
   - {x: -0.5, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.05
+    widthMultiplier: 0.26
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0.020513535
-        value: 0.5625
-        inSlope: 0
-        outSlope: 0
+        time: 0.010990143
+        value: 0.28472137
+        inSlope: -0.33562404
+        outSlope: -0.33562404
         tangentMode: 0
       - serializedVersion: 2
         time: 0.99515915

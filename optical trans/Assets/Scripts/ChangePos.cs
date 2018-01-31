@@ -99,7 +99,7 @@ public class ChangePos : MonoBehaviour {
         Charactor.GetComponent<SpriteOutline>().outlineSize = 1;
         
 		for (i = 0; i < 25; i++) {
-			if (Charactor.transform.localScale.x - 0.05f > 0 && Object.transform.localScale.x - 0.05f > 0) {
+			if (Charactor.transform.localScale.x - 0.05f > 0 && Object.transform.localScale.x - 0.05f > 0 && Object.transform.localScale.y - 0.05f > 0) {
 				Charactor.transform.localScale = new Vector3 (Charactor.transform.localScale.x - 0.05f, Charactor.transform.localScale.y - 0.05f, Charactor.transform.localScale.z);
 				//Object.transform.localScale = new Vector3 (Object.transform.localScale.x - obj_scaletime, Object.transform.localScale.y - obj_scaletime, Object.transform.localScale.z);
 			}
