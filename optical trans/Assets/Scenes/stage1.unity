@@ -10752,7 +10752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wapeTime: 3
-  nextStage: 
+  nextStage: asd
 --- !u!70 &1418313300
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
