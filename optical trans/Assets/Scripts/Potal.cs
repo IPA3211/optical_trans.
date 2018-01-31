@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Potal : MonoBehaviour {
 
-    public float wapeTime;
+    public float warpTime;
 
     bool loading = true;
     float flowTime;
@@ -22,8 +22,8 @@ public class Potal : MonoBehaviour {
     void OnTriggerStay2D(Collider2D other) {
         ani.speed = 2;
         if (other.tag.Equals("Player"))
-        flowTime += Time.deltaTime;
-        if (wapeTime < flowTime && loading) {
+        	flowTime += Time.deltaTime;
+        if (warpTime < flowTime && loading) {
             loading = false;
             GameObject.Find("Script").GetComponent<Menu>().NextScene(nextStage);
         }

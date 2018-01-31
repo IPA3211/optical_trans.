@@ -1570,8 +1570,9 @@ GameObject:
   - component: {fileID: 165363887}
   - component: {fileID: 165363886}
   - component: {fileID: 165363885}
+  - component: {fileID: 165363888}
   m_Layer: 0
-  m_Name: objects_27
+  m_Name: floor_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1710,6 +1711,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &165363888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165363882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889ec96fd2693aa4e939cfcc7d82defd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canTrans: 0
+  canHit: 1
+  canDestroyByBigEnemy: 0
 --- !u!1001 &169765457
 Prefab:
   m_ObjectHideFlags: 0
@@ -16399,7 +16414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8016bc19c7a03af419845163007dda78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wapeTime: 3
+  warpTime: 2
   nextStage: awsdw
 --- !u!114 &2084525458
 MonoBehaviour:
