@@ -7,12 +7,13 @@ public class PortalGun_sprite : MonoBehaviour {
 	public GameObject no_portalgun;
 	public GameObject playergun;
 
-	void OnTriggerStay2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) {
 		
-
-		this.GetComponent<SpriteRenderer>().enabled = false;
-		no_portalgun.GetComponent<SpriteRenderer>().enabled = true;
-		playergun.SetActive (true);
+		if (other.tag.Equals ("Player")) {
+			this.GetComponent<SpriteRenderer> ().enabled = false;
+			no_portalgun.GetComponent<SpriteRenderer> ().enabled = true;
+			playergun.SetActive (true);
+		}
 
 	}
 		

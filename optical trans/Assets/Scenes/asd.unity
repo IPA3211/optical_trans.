@@ -2989,7 +2989,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 2.5}
+    oldSize: {x: 1, y: 2.375}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3072,7 +3072,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 513889e5a247b6244adcfcc6d4feb2c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00f46be65c3e0f548a00fe8854239fad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3995,7 +3995,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300006, guid: e7e445c224959c340b27489ab5394cdc,
+      objectReference: {fileID: 21300014, guid: 00f46be65c3e0f548a00fe8854239fad,
         type: 3}
     - target: {fileID: 4430974207129442, guid: 3b46f30001243114d9e5d09da6e9d310, type: 2}
       propertyPath: m_LocalPosition.x
