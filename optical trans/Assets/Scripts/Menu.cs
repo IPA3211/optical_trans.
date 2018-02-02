@@ -88,6 +88,7 @@ public class Menu : MonoBehaviour {
         if (!loading)
         {
             SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+            scenename = nextScene;
             loading = !loading;
         }
         Time.timeScale = 1;
