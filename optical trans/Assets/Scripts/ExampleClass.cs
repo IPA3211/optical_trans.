@@ -58,13 +58,15 @@ public class ExampleClass : MonoBehaviour
             {
                 flip = false;
                 cha.transform.rotation = Quaternion.Euler(rot.x, 0, rot.z);
-                bar.transform.rotation = Quaternion.Euler(0, 0, -angle + 90);
+                if(bar != null)
+                    bar.transform.rotation = Quaternion.Euler(0, 0, -angle + 90);
             }
             else
             {
                 flip = true;
                 cha.transform.rotation = Quaternion.Euler(rot.x, 180, rot.z);
-                bar.transform.rotation = Quaternion.Euler(180, 0, angle - 90);
+                if (bar != null)
+                    bar.transform.rotation = Quaternion.Euler(180, 0, angle - 90);
             }
         }
     }
