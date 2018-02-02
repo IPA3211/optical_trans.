@@ -3795,7 +3795,7 @@ MonoBehaviour:
   player: {fileID: 0}
   bounds: 1
   minCameraPos: {x: 0, y: -2.35, z: -10}
-  maxCameraPos: {x: 67.4, y: 38.3, z: -10}
+  maxCameraPos: {x: 6, y: 38.3, z: -10}
 --- !u!114 &1807159268
 MonoBehaviour:
   m_ObjectHideFlags: 0
