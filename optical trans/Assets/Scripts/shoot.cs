@@ -46,13 +46,15 @@ public class shoot : MonoBehaviour {
 				}
 				Delayed += Time.deltaTime;
                 if (charactor.GetComponent<UnityChan2DController>().Flip) {
-                    reloadBar.transform.position = charactor.transform.position + new Vector3(-0.44f, 1.2f);
+                    reloadBar.transform.position = charactor.transform.position + new Vector3(-0.44f, 1.3f);
+                    reloadBar.transform.rotation = Quaternion.Euler(180, 0, 0);
                     reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
                 }
 
                 else
                 {
-                    reloadBar.transform.position = charactor.transform.position + new Vector3(-0.56f, 1.2f);
+                    reloadBar.transform.position = charactor.transform.position + new Vector3(-0.44f, 1.3f);
+                    reloadBar.transform.rotation = Quaternion.Euler(0, 0, 0);
                     reloadBar.transform.localScale = new Vector3(Delayed / reloadTime, 1);
                 }
             }

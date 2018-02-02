@@ -5,12 +5,13 @@ public class homingMissile : MonoBehaviour
 {
     public float speed = 5;
     public float rotatingSpeed = 200;
-    public GameObject target;
+    GameObject target;
     Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

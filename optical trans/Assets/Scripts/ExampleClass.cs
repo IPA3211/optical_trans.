@@ -56,6 +56,7 @@ public class ExampleClass : MonoBehaviour
             float angle = Mathf.Atan2(asd.x, asd.y) * Mathf.Rad2Deg;
             if (-angle + 90 > -90 && -angle + 90 < 90)
             {
+                cha.GetComponent<UnityChan2DController>().Flip = false;
                 flip = false;
                 cha.transform.rotation = Quaternion.Euler(rot.x, 0, rot.z);
                 if(bar != null)
@@ -63,6 +64,7 @@ public class ExampleClass : MonoBehaviour
             }
             else
             {
+                cha.GetComponent<UnityChan2DController>().Flip = true;
                 flip = true;
                 cha.transform.rotation = Quaternion.Euler(rot.x, 180, rot.z);
                 if (bar != null)

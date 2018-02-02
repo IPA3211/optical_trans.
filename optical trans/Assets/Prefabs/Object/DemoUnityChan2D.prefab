@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.628077, y: 16.523922, z: 0}
+  m_LocalPosition: {x: 25, y: 1, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 4140250447888646}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   maxSpeed: 8
-  minYVelocity: -60
+  minYVelocity: -30
   jumpDelay: 0.05
   jumpPower: 14
   dieYVal: -100
