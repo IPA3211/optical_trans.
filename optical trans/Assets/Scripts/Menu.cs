@@ -83,7 +83,7 @@ public class Menu : MonoBehaviour {
         }
         paused = true;
         GameObject.Find("Main Camera").GetComponent<GlitchEffect>().enabled = true;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         paused = false;
         if (!loading)
         {
