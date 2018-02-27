@@ -20,6 +20,7 @@ public class UnityChan2DController : MonoBehaviour
     private Animator m_animator;
     private BoxCollider2D m_boxcollier2D;
     private Rigidbody2D m_rigidbody2D;
+    private bool died = false;
     private bool m_isGround;
     private bool canDoubleJump; //allow to double jump
     private bool canJump = true;
@@ -31,6 +32,7 @@ public class UnityChan2DController : MonoBehaviour
 
     void Reset()
     {
+        died = false;
         Awake();
 
         // UnityChan2DController
@@ -56,6 +58,7 @@ public class UnityChan2DController : MonoBehaviour
 
     void Awake()
     {
+        died = false;
         m_isGround = gameObject.GetComponent<OnGround>().onGround;
         m_animator = GetComponent<Animator>();
         m_boxcollier2D = GetComponent<BoxCollider2D>();
@@ -80,7 +83,11 @@ public class UnityChan2DController : MonoBehaviour
         }
 
         if (transform.position.y < dieYVal) {
-            GameObject.Find("Script").GetComponent<Menu>().Restart();
+            if (!died)
+            {
+                GameObject.Find("Script").GetComponent<Menu>().Restart();
+                died = !died;
+            }
         }
 
         if (minYVelocity > gameObject.GetComponent<Rigidbody2D>().velocity.y) {
