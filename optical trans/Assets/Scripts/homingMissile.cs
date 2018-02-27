@@ -65,6 +65,7 @@ public class homingMissile : MonoBehaviour
 				speed = 0f;
 				rotatingSpeed = 0f;
                 Destroy(light);
+				gameObject.transform.localScale = new Vector3 (1.45f, 1.45f, 1.45f);
 				gameObject.GetComponent<Animator> ().Play ("explosion");
             }
         }
