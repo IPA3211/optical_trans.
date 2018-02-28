@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTrans: 0
   canHit: 1
+  canDestroyByBigEnemy: 0
 --- !u!114 &114241945194703272
 MonoBehaviour:
   m_ObjectHideFlags: 1

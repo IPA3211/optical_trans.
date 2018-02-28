@@ -8,8 +8,8 @@ public class Button : MonoBehaviour {
     public GameObject light;
     public Sprite idle, push;
     public bool pushed;
-
     IsGround Check;
+
     // Use this for initialization
     void Start () {
         Check = listener.GetComponent<IsGround>();
@@ -26,7 +26,6 @@ public class Button : MonoBehaviour {
                 light.GetComponent<Light>().enabled = true;
             }
         }
-
         else {
             gameObject.GetComponent<SpriteRenderer>().sprite = idle;
             if (light != null)

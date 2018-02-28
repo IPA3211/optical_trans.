@@ -27,6 +27,7 @@ public class CannonShoot : MonoBehaviour {
         while (alreadyShoot < bulletAmount)
         {
             Instantiate(bullet, ShootPoint.transform.position, Quaternion.Euler(180 + transform.eulerAngles.y, 0, 0));
+			CannonSoundManager.instance.PlayCannonShootSound ();
             yield return new WaitForSeconds(0.5f);
             alreadyShoot++;
         }
