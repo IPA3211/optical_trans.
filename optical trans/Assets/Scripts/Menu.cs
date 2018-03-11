@@ -96,6 +96,14 @@ public class Menu : MonoBehaviour {
         //gameObject.GetComponent<ChangePos>().Charactor = GameObject.Find("DemoUnityChan2D");
         //gameObject.GetComponent<ChangePos>().Gun = GameObject.Find("P_Gun");
     }
+
+	public void ExitGame(){
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+		#else
+			Application.Quit();
+		#endif
+	}
     
     public void Restart() {
         nextScene = scenename;
