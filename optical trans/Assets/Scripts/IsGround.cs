@@ -17,11 +17,19 @@ public class IsGround : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Ground = true;
+        try
+        {
+            if (other.GetComponent<Collider2D>().isTrigger == false) Ground = true;
+        }
+        catch { }
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        Ground = true;
+        try
+        {
+            if (other.GetComponent<Collider2D>().isTrigger == false) Ground = true;
+        }
+        catch { }
     }
 
     void OnTriggerExit2D(Collider2D other)
