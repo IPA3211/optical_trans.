@@ -2235,6 +2235,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114443218028803538, guid: fc8974c3a5b96ac4e870cae0ae22a362,
+        type: 2}
+      propertyPath: nextStage
+      value: tutorial4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc8974c3a5b96ac4e870cae0ae22a362, type: 2}
   m_IsPrefabParent: 0

@@ -217,6 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warpTime: 2
   nextStage: asd
+  button: {fileID: 0}
+  idleSprite: {fileID: 21300028, guid: 73a9e7dad06923c4ca61b0f71adb9eae, type: 3}
 --- !u!114 &114533825044213460
 MonoBehaviour:
   m_ObjectHideFlags: 1
