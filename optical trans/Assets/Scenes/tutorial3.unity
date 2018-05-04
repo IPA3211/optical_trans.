@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 31023146}
   - component: {fileID: 31023145}
   - component: {fileID: 31023149}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: instruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 109490227}
   - component: {fileID: 109490226}
   - component: {fileID: 109490225}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: e_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3590,6 +3590,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1069964459290426, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3ff126a806b2454eaff021fe39cea19, type: 2}
   m_IsPrefabParent: 0
@@ -4623,7 +4627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102046084}
   - component: {fileID: 2102046083}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: interface_missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
