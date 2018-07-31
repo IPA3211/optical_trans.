@@ -10,7 +10,6 @@ public class UnityChan2DController : MonoBehaviour
     public float jumpPower = 1000f;
     public float dieYVal = -100f;
     public Vector2 backwardForce = new Vector2(-4.5f, 5.4f);
-    public bool DoubleJump;
     public bool Flip;
     
     public LayerMask whatIsGround;
@@ -63,8 +62,7 @@ public class UnityChan2DController : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_boxcollier2D = GetComponent<BoxCollider2D>();
         m_rigidbody2D = GetComponent<Rigidbody2D>();
-        if (DoubleJump)
-            canDoubleJump = true;
+        canDoubleJump = true;
         paused = GameObject.Find("Script").GetComponent<Menu>().paused;
     }
 
@@ -117,19 +115,15 @@ public class UnityChan2DController : MonoBehaviour
                 m_animator.SetTrigger("Jump");
                 SendMessage("Jump", SendMessageOptions.DontRequireReceiver);
                 m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower);
-                //canDoubleJump = true;
                 canJump = false;
-                //Debug.Log("jump");
             }
             else
             {
-                if (!m_isGround && canDoubleJump && DoubleJump)
+                if (!m_isGround && canDoubleJump)
                 {
                     canDoubleJump = false;
                     SendMessage("Jump", SendMessageOptions.DontRequireReceiver);
                     m_rigidbody2D.velocity = new Vector2(m_rigidbody2D.velocity.x, jumpPower / 1.1f);
-                    //Debug.Log("Djump");
-                    //m_rigidbody2D.AddForce(Vector2.up * jumpPower);
                 }
             }
         }
