@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Button : MonoBehaviour {
-
+    internal readonly object onClick;
     public GameObject listener;
     public GameObject light;
     public Sprite idle, push;
