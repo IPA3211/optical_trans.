@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : MonoBehaviour {
+public class eButton : MonoBehaviour {
     internal readonly object onClick;
     public GameObject listener;
     public GameObject light;

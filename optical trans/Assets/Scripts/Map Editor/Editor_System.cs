@@ -51,10 +51,8 @@ public class Editor_System : MonoBehaviour {
             try {
                 button[i].SetActive(true);
                 button[i].GetComponent<Editor_ObjectBtn>().ChangeSourceObject(prefabsList[i + pageNumber * button.Length]);
-                Debug.Log("asd");
             } catch {
                 button[i].SetActive(false);
-                Debug.Log("bbb");
             }
         }
     }

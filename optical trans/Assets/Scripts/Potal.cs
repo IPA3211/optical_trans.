@@ -32,7 +32,7 @@ public class Potal : MonoBehaviour {
     private bool IsActive() {
         try
         {
-            if (button.GetComponent<Button>().pushed == true) {
+            if (button.GetComponent<eButton>().pushed == true) {
                 return true;
             }
             else

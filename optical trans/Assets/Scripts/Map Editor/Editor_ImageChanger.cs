@@ -31,7 +31,6 @@ public class Editor_ImageChanger : MonoBehaviour {
             catch {
                 gameObject.GetComponent<SpriteRenderer>().sprite = sourceObject.GetComponent<SpriteRenderer>().sprite;
             }
-            Debug.Log("Editor causes this Update");
         }
     }
 }

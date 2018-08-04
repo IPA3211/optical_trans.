@@ -7,6 +7,7 @@ namespace Crosstales.UI.Util
     public class FPSDisplay : MonoBehaviour
     {
 
+        
         #region Variables
 
         public Text FPS;

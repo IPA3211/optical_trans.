@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Editor_draw : MonoBehaviour {
     Editor_System system;
@@ -21,9 +22,8 @@ public class Editor_draw : MonoBehaviour {
     private void FixedUpdate()
     {
         sumTime += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Mouse0) && !system.paused && !overlapped && (sumTime > sensitivity))
+        if (Input.GetAxis("Fire1") > 0&& !system.paused && !overlapped && (sumTime > sensitivity) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("asdf");
             drawer.GetComponent<Editor_ImageChanger>().sourceObject = system.GetFocus();
             obj = Instantiate(drawer, transform.position, Quaternion.identity);
             obj.transform.parent = collector.transform;
@@ -39,7 +39,6 @@ public class Editor_draw : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Hit");
         overlapped = true;
     }
 }
