@@ -7,11 +7,11 @@ public class InstructionRead : MonoBehaviour {
 	public GameObject instruction;
 	public GameObject show_instructionbox;
 	public GameObject e_button;
-	bool enter;
+    bool enter;
 	bool e_click;
-	Sprite spr;
+    
 
-	void Start() {
+    void Start() {
 		enter = false;
 		e_click = false;
 		//spr = (Sprite)Resources.Load ("Sprites/object2_15");
@@ -23,7 +23,7 @@ public class InstructionRead : MonoBehaviour {
 
 			if (Input.GetKeyDown (KeyCode.E) && e_click == false) {
 				e_click = true;
-				show_instructionbox.SetActive (true);
+				show_instructionbox.SetActive (true);               
 			} 
 			else if (Input.GetKeyDown (KeyCode.E) && e_click == true) {
 				show_instructionbox.SetActive (false);
@@ -36,13 +36,11 @@ public class InstructionRead : MonoBehaviour {
 		}
 		
 	}
-		
-	void OnTriggerEnter2D(Collider2D other) {
+
+    void OnTriggerEnter2D(Collider2D other) {
 
 		if (other.tag.Equals ("Player")) {
 			enter = true;
-			//this.GetComponent<SpriteRenderer> ().sprite = spr;
-			//no_instruction.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 
 	}
@@ -50,4 +48,12 @@ public class InstructionRead : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		enter = false;
 	}
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            enter = true;
+        }
+    }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuStartButton : MonoBehaviour {
-	public Button startButton;
 	public Sprite start_origin;
 	public Sprite start_highlight;
 
@@ -20,7 +19,7 @@ public class MenuStartButton : MonoBehaviour {
 	}
 
 	public void NextScene () {
-		SceneManager.LoadScene("tutorial1", LoadSceneMode.Single);
+		SceneManager.LoadScene("office_1", LoadSceneMode.Single);
 	}
 
 	public void PointerEnter() {
