@@ -13,7 +13,7 @@ obj/
 *.userprefs
 /*.csproj
 *.pidb
-*.suo
+*.suo*.meta
 /*.sln
 *.user
 *.unityproj
