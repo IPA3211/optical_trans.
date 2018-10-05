@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Editor_System : MonoBehaviour {
+
     public GameObject editor_object;
     public GameObject editor_UI;
     public GameObject[] prefabsList;
@@ -19,6 +20,7 @@ public class Editor_System : MonoBehaviour {
     private GameObject instantFocus;
     private GameObject focus;
     private Vector3 wp2;
+
     // Use this for initialization
     void Start() {
         maxPageNumber = prefabsList.Length / button.Length;
