@@ -212,7 +212,6 @@ MonoBehaviour:
   jumpPower: 14
   dieYVal: -100
   backwardForce: {x: -4.5, y: 5.4}
-  DoubleJump: 1
   Flip: 0
   whatIsGround:
     serializedVersion: 2
@@ -339,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1189149658956242
 GameObject:
   m_ObjectHideFlags: 1

@@ -29,6 +29,18 @@ public class Editor_draw : MonoBehaviour {
             obj.transform.parent = collector.transform;
             sumTime = 0;
         }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider);
+                // raycast hit this gameobject
+            }
+        }
         overlapped = false;
     }
 

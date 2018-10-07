@@ -79,7 +79,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.2666667, y: 4}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 2.2666667, y: 2.2666667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 73a9e7dad06923c4ca61b0f71adb9eae, type: 3}
+  m_Sprite: {fileID: 21300058, guid: 73a9e7dad06923c4ca61b0f71adb9eae, type: 3}
   m_Color: {r: 0, g: 1, b: 0.25517225, a: 0.784}
   m_FlipX: 0
   m_FlipY: 0
