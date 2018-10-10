@@ -51,6 +51,7 @@ public class ComputerDialogue : MonoBehaviour {
         else
         {
             e_button.SetActive(false);
+            anim.SetBool("IsOpen", false);
         }
 
     }
