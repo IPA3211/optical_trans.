@@ -6,6 +6,7 @@ public class soundManager : MonoBehaviour
 {
     public AudioClip soundRelodaing; //재생할 소리를 변수로 담습니다.
 	public AudioClip gunfire;
+    public AudioClip skyFall;
 
     AudioSource myAudio; //AudioSorce 컴포넌트를 변수로 담습니다.
     public static soundManager instance;  //자기자신을 변수로 담습니다.
@@ -36,5 +37,10 @@ public class soundManager : MonoBehaviour
 	{
 		myAudio.PlayOneShot(gunfire); //gunfire을 재생합니다.
 	}
+
+    public void PlaySkyFallSound()
+    {
+
+    }
 
 }

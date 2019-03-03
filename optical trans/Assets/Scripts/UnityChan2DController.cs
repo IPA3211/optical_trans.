@@ -159,8 +159,10 @@ public class UnityChan2DController : MonoBehaviour
     {
         if ((other.tag == "DamageObject" || other.tag == "BigDamageObject") && m_state == State.Normal)
         {
-            otherObjSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x;
-            Debug.Log(otherObjSpeed);
+            if(other.gameObject.GetComponent<Rigidbody2D>() != null){
+                otherObjSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x;
+                Debug.Log(otherObjSpeed);
+            }
             m_state = State.Damaged;
             StartCoroutine(INTERNAL_OnDamage());
         }

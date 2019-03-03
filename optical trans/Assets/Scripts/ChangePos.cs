@@ -151,8 +151,6 @@ public class ChangePos : MonoBehaviour {
         //Object.GetComponent<SpriteOutline>().outlineSize = 0;
         Gun.SetActive(true);
 
-
-
         //menu.OnOffWithOutCanvas();
 
 

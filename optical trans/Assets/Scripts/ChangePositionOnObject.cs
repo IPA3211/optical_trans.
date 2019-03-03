@@ -10,6 +10,7 @@ public class ChangePositionOnObject : MonoBehaviour {
     Vector2 transPos;
     Material matrial;
     Color col;
+    Light light;
 
     public void ChangePosition(Vector2 transPosition, Material mat, Color color, float delaytime)
     {
@@ -27,6 +28,17 @@ public class ChangePositionOnObject : MonoBehaviour {
             gameObject.AddComponent<SpriteOutline>();
         }
 
+        if (gameObject.GetComponent<Light>() == null)
+        {
+            light = gameObject.AddComponent<Light>();
+        }
+        light.color = color;
+        light.type = LightType.Point;
+        light.range = 10;
+        //light.lightmapBakeType = LightmapBakeType.Realtime;
+        light.intensity = 50;   //빛의 강도가 제일 중요
+
+
         gameObject.GetComponent<SpriteOutline>().color = color;
         gameObject.GetComponent<SpriteOutline>().outlineSize = 1;
         obj_scaletime = gameObject.transform.localScale.x / 18f;
@@ -41,6 +53,7 @@ public class ChangePositionOnObject : MonoBehaviour {
             if (gameObject.transform.localScale.x - 0.05f > 0)
             {
                 gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x - obj_scaletime, gameObject.transform.localScale.y - obj_scaletime, gameObject.transform.localScale.z);
+                light.intensity += 3;
             }
             else
                 break;
@@ -60,7 +73,10 @@ public class ChangePositionOnObject : MonoBehaviour {
         for (int i = 0; i < 25; i++)
         {
             if (gameObject.transform.localScale.x + 0.05f < objectScale.x)
+            {
                 gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x + obj_scaletime, gameObject.transform.localScale.y + obj_scaletime, gameObject.transform.localScale.z);
+                light.intensity -= 3.5f;
+            }
             else
                 break;
             yield return new WaitForSeconds(0.0005f);
@@ -68,5 +84,6 @@ public class ChangePositionOnObject : MonoBehaviour {
 
         gameObject.transform.localScale = objectScale;
         gameObject.GetComponent<SpriteOutline>().outlineSize = 0;
+        Destroy(light);
     }
 }

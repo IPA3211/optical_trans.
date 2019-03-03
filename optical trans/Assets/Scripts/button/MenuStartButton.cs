@@ -19,7 +19,7 @@ public class MenuStartButton : MonoBehaviour {
 	}
 
 	public void NextScene () {
-		SceneManager.LoadScene("office_1", LoadSceneMode.Single);
+		SceneManager.LoadScene("startPoint", LoadSceneMode.Single);
 	}
 
 	public void PointerEnter() {

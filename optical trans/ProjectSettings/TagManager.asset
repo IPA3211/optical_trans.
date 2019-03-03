@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - BigDamageObject
   - scanner
+  - bullet
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Block
     uniqueID: 2494971979
+    locked: 0
+  - name: Bullet
+    uniqueID: 2551364407
     locked: 0
   - name: UI
     uniqueID: 4086813705

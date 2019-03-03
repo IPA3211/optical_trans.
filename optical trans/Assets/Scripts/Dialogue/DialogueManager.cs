@@ -7,17 +7,21 @@ public class DialogueManager : MonoBehaviour {
 
     public Text nameText;
     public Text dialogueText;
+    private bool isDisplaying;
+    private bool isEnterPressed;
 
     private Queue<string> sentences;
 
 	// Use this for initialization
 	void Start () {
         sentences = new Queue<string>();
+        isDisplaying = false;
+        isEnterPressed = false;
 	}
 	
 	public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Start conversation of " + dialogue.name);
+        //Debug.Log("Start conversation of " + dialogue.name);
         //StartCoroutine(WaitAnimation());
 
         nameText.text = dialogue.name;
@@ -35,10 +39,17 @@ public class DialogueManager : MonoBehaviour {
 
     public bool DisplayeNextSentence()
     {
-        if(sentences.Count == 0){
+        if(isDisplaying == true)
+        {
+            isEnterPressed = true;
+            return false;
+        }
+
+        if(sentences.Count == 0)
+        {
             EndDialogue();
             return true;
-        }
+        }        
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
@@ -58,16 +69,28 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator TypeSentence (string sentence)
     {
         dialogueText.text = "";
+        isDisplaying = true;
+        
         foreach(char letter in sentence.ToCharArray())
         {
+            if(isEnterPressed == true)
+            {
+                dialogueText.text = sentence;
+                isEnterPressed = false;
+                break;
+            }
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.04f);
         }
+
+        isDisplaying = false;
     }
 
 
     void EndDialogue()
-    { 
+    {
+        nameText.text = "";
+        dialogueText.text = "";
         Debug.Log("End of conversation");
     }
 }
